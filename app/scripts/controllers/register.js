@@ -10,13 +10,13 @@ angular.module('phApp.RegisterView',['ngRoute'])
   .controller('RegisterCtrl',function ($scope,apiservice) {
      $scope.saveData = function() {
         console.log($scope.Name);
-        $scope.apiservice = new apiservice();
-        $scope.apiservice.firstname = $scope.Name;
-        $scope.apiservice.username = $scope.Email;
-        $scope.apiservice.password = $scope.Password;
-        console.log("Scope is",$scope.apiservice);
-        apiservice.save($scope.apiservice,function() {
-          console.log("data is saved");
+        var user = {};
+        user.firstname = $scope.Name;
+        user.username = $scope.Email;
+        user.password = $scope.Password;
+        console.log("Scope is",user);
+        apiservice.register.save(user,function(response) {
+          console.log("data is saved",response);
         });
      };
   });

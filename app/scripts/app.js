@@ -19,6 +19,7 @@ angular
     'phApp.LoginView',
     'phApp.RegisterView',
     'phApp.MainView',
+    'phApp.PostView',
     'phApp.apiservice'
   ])
   .config(function ($routeProvider) {
@@ -37,6 +38,11 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
+      })
+      .when('/submit', {
+        templateUrl: 'views/post.html',
+        controller: 'PostCtrl',
+        controllerAs: 'post'
       })
       .otherwise({
         redirectTo: '/'
