@@ -15,7 +15,11 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'phApp.LoginView',
+    'phApp.RegisterView',
+    'phApp.MainView',
+    'phApp.apiservice'
   ])
   .config(function ($routeProvider) {
     $routeProvider

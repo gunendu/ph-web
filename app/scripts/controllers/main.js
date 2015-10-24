@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the phApp
  */
-angular.module('phApp')
+angular.module('phApp.MainView',['ngRoute'])
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

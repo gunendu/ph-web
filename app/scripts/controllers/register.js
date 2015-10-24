@@ -6,16 +6,16 @@
  * # AboutCtrl
  * Controller of the phApp
  */
-angular.module('phApp')
-  .controller('RegisterCtrl',function ($scope,phApi) {
+angular.module('phApp.RegisterView',['ngRoute'])
+  .controller('RegisterCtrl',function ($scope,apiservice) {
      $scope.saveData = function() {
         console.log($scope.Name);
-        $scope.phApi = new phApi();
-        $scope.phApi.firstname = $scope.Name;
-        $scope.phApi.username = $scope.Email;
-        $scope.phApi.password $scope.Password;
-        console.log("Scope is",$scope.phApi);
-        phApi.User.save($scope.phApi,function() {
+        $scope.apiservice = new apiservice();
+        $scope.apiservice.firstname = $scope.Name;
+        $scope.apiservice.username = $scope.Email;
+        $scope.apiservice.password = $scope.Password;
+        console.log("Scope is",$scope.apiservice);
+        apiservice.save($scope.apiservice,function() {
           console.log("data is saved");
         });
      };

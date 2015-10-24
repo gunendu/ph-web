@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('phApp')
-  .controller('LoginCtrl', function($scope) {
-     
+angular.module('phApp.LoginView',['ngRoute'])
+  .controller('LoginCtrl', function() {
+
   });
