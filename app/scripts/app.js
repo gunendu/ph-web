@@ -20,6 +20,7 @@ angular
     'phApp.RegisterView',
     'phApp.MainView',
     'phApp.PostView',
+    'phApp.PostViewDetails',
     'phApp.apiservice'
   ])
   .config(function ($routeProvider) {
@@ -43,6 +44,11 @@ angular
         templateUrl: 'views/post.html',
         controller: 'PostCtrl',
         controllerAs: 'post'
+      })
+      .when('/postdetails/:post_id', {
+        templateUrl: 'views/postdetails.html',
+        controller: 'PostDetailsCtrl',
+        controllerAs: 'postdetails'
       })
       .otherwise({
         redirectTo: '/'

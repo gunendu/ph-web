@@ -1,0 +1,13 @@
+<h1> Post details page </h1>
+<table class="table table-striped table-condensed table-hover">
+  <tbody>
+     <tr ng-repeat="item in comments">
+        <td>{{item.comment}}</td>
+    </tr>
+  </tbody>
+</table>
+<form>
+  <textarea ng-model="message"></textarea>
+  <br>
+  <input type="submit" value="Send Message" ng-click="sendComment(message)" />
+</form>
