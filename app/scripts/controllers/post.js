@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 angular.module('phApp.PostView',['ngRoute'])
   .controller('PostCtrl', function($scope,apiservice) {

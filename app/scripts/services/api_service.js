@@ -1,9 +1,11 @@
 'use strict';
 
-angular.module("phApp.apiservice", [])
-  .factory('apiservice', function($resource) {
+var myapp = angular.module("phApp.apiservice", [])
+
+
+
+myapp.factory('apiservice', function($resource,$http) {
       var register = $resource('http://localhost:9005/user/save'),
-          login = $resource('http://localhost:9005/user/login'),
           post = $resource('http://localhost:9005/user/post'),
           getPosts = $resource('http://localhost:9005/user/post'),
           votePosts = $resource('http://localhost:9005/user/vote'),
@@ -20,4 +22,4 @@ angular.module("phApp.apiservice", [])
         comment: comment,
         getComments: getComments
       };
-  });
+});

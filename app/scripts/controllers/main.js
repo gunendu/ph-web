@@ -8,9 +8,10 @@
  * Controller of the phApp
  */
 angular.module('phApp.MainView',['ngRoute'])
-  .controller('MainCtrl', function ($scope,$location,apiservice) {
+  .controller('MainCtrl', function ($scope,$location,$rootScope,apiservice) {
      var item = function () {
      var posts = apiservice.getPosts.get(function() {
+       console.log("rootScope",$rootScope.user);
        console.log("entries",posts.result);
        $scope.result = posts.result;
      });
