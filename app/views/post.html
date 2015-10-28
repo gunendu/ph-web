@@ -12,8 +12,8 @@
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" ng-click="savePost()" class="btn btn-success">Submit</button>
-    </div>
+    <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"/>
+      <button ng-click="savePost()" >Submit</button>
   </div>
+
 </form>

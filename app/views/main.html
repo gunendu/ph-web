@@ -4,8 +4,10 @@
        <tr ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" >
          <td>
          <center>
+           <img src="http://i.forbesimg.com/media/lists/companies/google_416x416.jpg" height="130" width="90"></a>
            <i title="Up Votes" ng-click="upVote(item.id)" class="btn btn-compare" style='cursor:pointer'></i>
-           <br/> <i title="Down Votes" ng-click="downVote(item.id)" class="btn btn-compare" style='cursor:pointer'></i>
+           <br/>
+           <i title="Down Votes" ng-click="downVote(item.id)" class="btn btn-compare" style='cursor:pointer'></i>
            <br/>{{item.vote}}
          </center>
         </td>
