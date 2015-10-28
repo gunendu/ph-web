@@ -31,22 +31,30 @@ myapp.run(['$rootScope','$window', 'srvAuth',
 
 }]);
 
-myapp.factory('srvAuth',function($rootScope,$location) {
+myapp.factory('srvAuth',function($rootScope,$location,apiservice) {
 
 var checkLoginState = function() {
     FB.getLoginStatus(function(response) {
-      console.log("getLoginStatus",response);
-      getUserInfo();
+      getUserInfo(function(res) {
+        console.log("callback response",res);
+        var user = {};
+        user.username = res.email;
+        user.name = res.name;
+        user.id = res.id;
+        apiservice.register.save(user,function(response){
+          console.log("user register response is",response);
+        });
+        $location.path('');
+      });
     });
 }
 
-var getUserInfo = function() {
+
+var getUserInfo = function(callback) {
   FB.api('/me?fields=email,name', function(res) {
-    console.log("get user details is called",res);
     $rootScope.$apply(function() {
       $rootScope.user = res;
-      
-      $location.path('');
+      callback(res);
     });
   });
 }
