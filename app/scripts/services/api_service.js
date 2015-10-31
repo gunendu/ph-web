@@ -13,7 +13,7 @@ myapp.factory('apiservice', function($resource,$http) {
           comment = $resource('http://localhost:9005/user/comment'),
           getComments = $resource('http://localhost:9005/user/comment/:postid');
       return {
-        register: register,        
+        register: register,
         post: post,
         getPosts: getPosts,
         votePosts: votePosts,

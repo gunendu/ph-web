@@ -1,13 +1,12 @@
+
 <div class="container" ng-controller="MainCtrl">
   <table class="table table-striped table-condensed table-hover">
     <tbody>
-       <tr ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" >
-         <td>
+       <tr ng-repeat="item in result" ng-click="go('/postdetails/',item.id)">
+         <td>          
+         <span class="vote" ng-click="upVote(item.id); $event.stopPropagation()"; ng-class="{red : toggle}"> </span>
          <center>
-           <img src="http://i.forbesimg.com/media/lists/companies/google_416x416.jpg" height="130" width="90"></a>
-           <i title="Up Votes" ng-click="upVote(item.id)" class="btn btn-compare" style='cursor:pointer'></i>
-           <br/>
-           <i title="Down Votes" ng-click="downVote(item.id)" class="btn btn-compare" style='cursor:pointer'></i>
+           <img src={{item.image_url}} height="130" width="90"></a>
            <br/>{{item.vote}}
          </center>
         </td>
