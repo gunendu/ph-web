@@ -1,17 +1,21 @@
 
 <div class="container" ng-controller="MainCtrl">
-  <table class="table table-striped table-condensed table-hover">
-    <tbody>
-       <tr ng-repeat="item in result" ng-click="go('/postdetails/',item.id)">
-         <td>          
-         <span class="vote" ng-click="upVote(item.id); $event.stopPropagation()"; ng-class="{red : toggle}"> </span>
-         <center>
-           <img src={{item.image_url}} height="130" width="90"></a>
-           <br/>{{item.vote}}
-         </center>
-        </td>
-          <td>{{item.url}}</td>
-      </tr>
-    </tbody>
-  </table>
+        <div ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" style="width:100%;height:180px;border-bottom:solid 1px grey;padding-top:15px;">
+         <div style="width:50px;float:left;">
+          <div style='    text-align: center;margin-top: 50%;'>
+           <span class="vote" ng-click="upVote(item.id); $event.stopPropagation()"; ng-class="{red : toggle}"> </span>
+           <span>{{item.vote}}</span>
+         </div>
+         </div>
+         <div style="width:130px;height:130px;float:left;">
+           <img src={{item.image_url}} height="130" width="130"></a>
+
+         </div>
+         <div style="float:left;font-weight:bold;height:130px;margin-left:10px;">
+           <div style="margin:35%;width:100%;">
+             <p>{{item.url}}</p>
+             <p style="color:grey;font-style:italic;">{{item.title}}</p>
+          </div>
+        </div>
+       </div>
 </div>
