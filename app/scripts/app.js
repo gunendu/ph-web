@@ -30,11 +30,6 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/register', {
-        templateUrl: 'views/register.html',
-        controller: 'RegisterCtrl',
-        controllerAs: 'register'
-      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
