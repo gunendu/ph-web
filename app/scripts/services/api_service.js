@@ -1,11 +1,10 @@
 'use strict';
 
-var myapp = angular.module("phApp.apiservice", [])
+var myapp = angular.module("phApp.apiservice", ['ngStorage','ngResource'])
 
-
-
-myapp.factory('apiservice', function($resource,$http) {
-      var register = $resource('http://localhost:9005/user/save'),
+myapp.factory('apiservice', function($resource,$localStorage,$http) {
+      $http.defaults.headers.common['access-token'] = $localStorage.accesstoken;
+      var register = $resource('http://localhost:9005/user/login'),
           post = $resource('http://localhost:9005/user/post'),
           getPosts = $resource('http://localhost:9005/user/post'),
           votePosts = $resource('http://localhost:9005/user/vote'),

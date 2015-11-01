@@ -1,6 +1,6 @@
 'use strict';
 
-var myapp = angular.module('phApp.LoginView',['ngRoute']);
+var myapp = angular.module('phApp.LoginView',['ngRoute','ngStorage']);
 
 myapp.run(['$rootScope','$window', 'srvAuth',
   function($rootScope,$window, sAuth) {
@@ -30,7 +30,7 @@ myapp.run(['$rootScope','$window', 'srvAuth',
   }(document));
 }]);
 
-myapp.factory('srvAuth',function($rootScope,$location,$cookies,apiservice) {
+myapp.factory('srvAuth',function($rootScope,$location,$localStorage,apiservice) {
 
 var checkLoginState = function() {
     FB.getLoginStatus(function(response) {
@@ -41,9 +41,11 @@ var checkLoginState = function() {
         user.profile_url = res.picture.data.url;
         apiservice.register.save(user,function(response) {
           console.log("user register response is",response);
-          $cookies.put('username',user.username);
-          $cookies.put('name',user.name);
-          $cookies.put('user_id',response.result.insertId);
+          $localStorage.username = user.username;
+          $localStorage.name = user.name;
+          $localStorage.user_id = response.result.insertId;
+          $localStorage.accesstoken = response.result.token;
+          console.log("localStorage data",$localStorage.accesstoken,$localStorage.username);
         });
         $location.path('');
       });
@@ -66,15 +68,16 @@ return {
 
 });
 
-myapp.controller('LoginCtrl', function($scope,$window,$cookies,srvAuth) {
+myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth) {
    $window.login = function() {
      srvAuth.checkLoginState();
    }
    $scope.logout = function() {
      FB.logout(function(response) {
-       $cookies.remove('username');
-       $cookies.remove('user_id');
-       $cookies.remove('name');
+       delete $localStorage.username;
+       delete $localStorage.user_id;
+       delete $localStorage.name;
+       delete $localStorage.accesstoken;
        console.log("logout is success",response);
      });
    }

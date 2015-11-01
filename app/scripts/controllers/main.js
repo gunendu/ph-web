@@ -7,9 +7,10 @@
  * # MainCtrl
  * Controller of the phApp
  */
-angular.module('phApp.MainView',['ngRoute'])
-  .controller('MainCtrl', function ($scope,$location,$rootScope,apiservice) {
+angular.module('phApp.MainView',['ngRoute','ngStorage'])
+  .controller('MainCtrl', function ($scope,$location,$rootScope,$localStorage,apiservice) {
      $scope.toggle = false;
+     console.log("localStorage data",$localStorage.accesstoken,$localStorage.username);
      var item = function () {
      var posts = apiservice.getPosts.get(function() {
        console.log("rootScope",$rootScope.user);
