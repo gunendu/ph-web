@@ -1,12 +1,14 @@
 'use strict';
 
-var myapp = angular.module('phApp.PostView',['ngRoute'])
+var myapp = angular.module('phApp.PostView',['ngRoute','ngStorage'])
 
-myapp.controller('PostCtrl', function($scope,$http,apiservice) {
+myapp.controller('PostCtrl', function($scope,$http,$localStorage,apiservice) {
     $scope.savePost = function (files) {
       var post = {};
       post.title = $scope.Title;
       post.url = $scope.Url;
+      post.product_name = $scope.product_name;
+      post.user_id = $localStorage.user_id;
       var fd = new FormData();
       angular.forEach($scope.files,function(file){
         fd.append('image',file);
@@ -17,7 +19,7 @@ myapp.controller('PostCtrl', function($scope,$http,apiservice) {
           headers: {'Content-Type': undefined },
           transformRequest: angular.identity
       })
-      .success(function(response){
+      .success(function(response) {
          console.log("response is",response);
       })
       .error(function(error){
@@ -25,9 +27,6 @@ myapp.controller('PostCtrl', function($scope,$http,apiservice) {
       })
     };
 
-    $scope.uploadFile = function(files) {
-
-    };
 });
 
 myapp.directive("fileread", [function () {

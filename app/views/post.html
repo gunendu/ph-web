@@ -6,16 +6,21 @@
     </div>
   </div>
   <div class="form-group">
+    <label for="inputName3" class="col-sm-2 control-label">Product</label>
+    <div class="col-sm-4">
+      <input class="form-control" id="inputName3" placeholder="Product Name" ng-model="name">
+    </div>
+  </div>
+  <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Url</label>
     <div class="col-sm-4">
       <input class="form-control" id="inputEmail3" placeholder="Url" ng-model="Url">
     </div>
   </div>
   <div class="form-group">
-  <!--<input type="file" name="image" file-input="files" onchange="angular.element(this).scope().uploadFile(files)" multiple/>-->
-  <input type="file" file-input="files" multiple />
-  <button ng-click="savePost()" >Submit</button>
-  <li ng-repeat="file in files">{{file.name}}</li>
+    <input type="file" file-input="files" multiple />
+    <button ng-click="savePost()" >Submit</button>
+    <li ng-repeat="file in files">{{file.name}}</li>
   </div>
 
 </form>
