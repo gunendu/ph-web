@@ -19,8 +19,7 @@ angular.module('phApp.MainView',['ngRoute','ngStorage'])
      $scope.upVote = function (index) {
         $scope.toggle = !$scope.toggle;
         var post = {};
-        post.post_id = index;
-        $scope.result[index].vote++;
+        post.post_id = index;        
         if($scope.toggle) {
           $scope.vote++;
           apiservice.votePosts.save(post,

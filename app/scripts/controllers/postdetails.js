@@ -10,7 +10,6 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
     comment.comment = message;
     comment.user_id = $localStorage.user_id;
     var username = $localStorage.username;
-    console.log("comment details",comment,username);
     apiservice.comment.save(comment,
       function(response) {
         console.log("comment save response",response);
@@ -21,10 +20,26 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
       });
   }
   var getComments = function() {
+     console.log("get comments is called");
      var response = apiservice.getComments.get({postid:$scope.post_id},function() {
        $scope.comments = response.result;
        console.log("comments",$scope.comments);
      });
+  }
+  $scope.addReply = function(message,comment_id) {
+    console.log("reply text is",message);
+    var reply = {};
+    reply.comment_id = comment_id;
+    reply.reply = message;
+    reply.user_id = $localStorage.user_id;
+    console.log("reply",reply);
+    apiservice.reply.save(reply,
+      function(response) {
+        console.log("comment is saved",response);
+      },
+      function(err) {
+        console.log("error sending comments");
+      });
   }
   getComments();
   });

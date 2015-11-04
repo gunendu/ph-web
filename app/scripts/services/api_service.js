@@ -10,7 +10,8 @@ myapp.factory('apiservice', function($resource,$localStorage,$http) {
           votePosts = $resource('http://localhost:9005/user/vote'),
           downVotePost = $resource('http://localhost:9005/user/downvote'),
           comment = $resource('http://localhost:9005/user/comment'),
-          getComments = $resource('http://localhost:9005/user/comment/:postid');
+          getComments = $resource('http://localhost:9005/user/comment/:postid'),
+          reply = $resource('http://localhost:9005/user/reply');
       return {
         register: register,
         post: post,
@@ -18,6 +19,7 @@ myapp.factory('apiservice', function($resource,$localStorage,$http) {
         votePosts: votePosts,
         downVotePost: downVotePost,
         comment: comment,
-        getComments: getComments
+        getComments: getComments,
+        reply: reply
       };
 });

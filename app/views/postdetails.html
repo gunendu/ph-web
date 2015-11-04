@@ -1,10 +1,12 @@
 <table class="table table-striped table-condensed table-hover">
-  <tbody>
-     <tr ng-repeat="item in comments">
-        <td>{{item.name}}</td>
-        <td>{{item.comment}}</td>
-    </tr>
-  </tbody>
+     <div ng-repeat="item in comments">
+        <div id={{item.comment.id}}>{{item.comment.comment}} {{item.comment.name}}</div>
+        <div ng-repeat="reply in item.reply">
+          <div id={{reply.reply_id}}>{{reply.reply}} {{reply.reply_name}}</div>
+        </div>
+        <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="textbox"></textarea>
+        <button class="btn btn-info" ng-click="addReply(textArea.textBox,item.comment.id)">Reply</button>
+    </div>
 </table>
 <form>
   <textarea ng-model="message"></textarea>
