@@ -3,6 +3,7 @@
 angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
   .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,apiservice) {
   $scope.post_id = $routeParams.post_id;
+  $scope.toggle = false;
   $scope.sendComment = function(message) {
     console.log("message is",message,$scope.post_id);
     var comment = {};
@@ -40,6 +41,33 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
       function(err) {
         console.log("error sending comments");
       });
+  }
+
+  $scope.upVoteComment = function(comment_id) {
+    $scope.toggle = !$scope.toggle;
+    var comment = {};
+    comment.id = comment_id;
+    if($scope.toggle) {
+      $scope.vote++;
+      apiservice.voteComment.save(comment,
+        function(response) {
+          console.log("Success upvoting Post",response);
+        },
+        function(err){
+          console.log("upVote error",err.data.error.code);
+          $location.path('/login');
+        });
+    } else {
+      $scope.vote--;
+      apiservice.downVoteComment.save(comment,
+        function(response) {
+          console.log("Success downvoting Post",response);
+        },
+        function(err) {
+          console.log("downVote error",err.data.console.code);
+          $location.path('/login');
+        });
+    }
   }
   getComments();
   });

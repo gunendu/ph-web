@@ -19,9 +19,9 @@ angular.module('phApp.MainView',['ngRoute','ngStorage'])
      $scope.upVote = function (index) {
         $scope.toggle = !$scope.toggle;
         var post = {};
-        post.post_id = index;        
+        post.post_id = index;
+        post.user_id = $localStorage.user_id;
         if($scope.toggle) {
-          $scope.vote++;
           apiservice.votePosts.save(post,
             function(response) {
               console.log("Success upvoting Post",response);
@@ -31,7 +31,7 @@ angular.module('phApp.MainView',['ngRoute','ngStorage'])
               $location.path('/login');
             });
         } else {
-          $scope.vote--;
+          console.log("down vote is called");
           apiservice.downVotePost.save(post,
             function(response) {
               console.log("Success downvoting Post",response);
