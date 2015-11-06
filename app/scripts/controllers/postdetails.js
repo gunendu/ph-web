@@ -46,7 +46,8 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
   $scope.upVoteComment = function(comment_id) {
     $scope.toggle = !$scope.toggle;
     var comment = {};
-    comment.id = comment_id;
+    comment.comment_id = comment_id;
+    comment.user_id = $localStorage.user_id;
     if($scope.toggle) {
       $scope.vote++;
       apiservice.voteComment.save(comment,
