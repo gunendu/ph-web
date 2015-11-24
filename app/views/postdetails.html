@@ -1,18 +1,18 @@
 <div>
      <div ng-repeat="item in comments">
         <div id={{item.comment.id}}>{{item.comment.comment}} {{item.comment.name}} {{item.commentcount}}</div>
-        <span class="vote" ng-click="upVoteComment(item.comment.id); $event.stopPropagation()"; ng-class="{red : toggle}"> </span>
-        <div ng-class="reply-item" >
+        <span class="vote" ng-click="upVoteComment(item.comment.id); $event.stopPropagation()"; ng-class="{red : toggle}">4</span>
+        <div style="margin-left:20px;" >
           <div ng-repeat="reply in item.reply">
             <div id={{reply.reply_id}}>{{reply.reply}} {{reply.reply_name}}</div>
           </div>
         </div>
-        <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="textbox"></textarea>
-        <button class="btn btn-info" ng-click="addReply(textArea.textBox,item.comment.id)">Reply</button>
+        <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
+        <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.comment.id)">Reply</button>
     </div>
 </div>
 <form>
-  <textarea ng-model="message"></textarea>
+  <textarea ng-model="message" class="form-control"></textarea>
   <br>
-  <input type="submit" value="Send Message" ng-click="sendComment(message)" />
+  <button class="btn btn-info reply" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
 </form>

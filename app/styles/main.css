@@ -69,14 +69,14 @@ body {
   background-position: 0 -25px;
   color: #cac6c3;
 }
-.vote::after{content:"\25B2";}​
-
+.vote::before{content:"\25B2";}​
 .reply-item { margin-left: 45px;}
-
 .red {
-    background-position: 0 2px;
+  background-position: 0 2px;
 }
-
+textarea.form-control { margin: 10px 0px; }
+.btn-info.reply { margin-bottom: 10px; }
+textarea.ng-valid {  min-height: 100px; }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
