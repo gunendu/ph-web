@@ -45,6 +45,11 @@ angular
         controller: 'PostDetailsCtrl',
         controllerAs: 'postdetails'
       })
+      .when('/profile', {
+         templateUrl: 'views/profiledetails.html',
+         controller: 'ProfileDetailsCtrl',
+         controllerAs: 'profiledetails'
+      })
       .otherwise({
         redirectTo: '/'
       });
