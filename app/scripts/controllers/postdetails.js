@@ -42,7 +42,6 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
         console.log("error sending comments");
       });
   }
-
   $scope.upVoteComment = function(comment_id) {
     $scope.toggle = !$scope.toggle;
     var comment = {};
