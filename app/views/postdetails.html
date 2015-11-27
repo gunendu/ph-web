@@ -1,4 +1,4 @@
-<div>
+<div class="comment-holder">
      <div ng-repeat="item in comments">
         <img src={{item.comment.profile_url}} class="img-circle">
         <div class="bold">{{item.comment.name}}</div>
@@ -14,7 +14,7 @@
         <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.comment.id)">Reply</button>
     </div>
 </div>
-<form>
+<form class="comment-holder">
   <textarea ng-model="message" class="form-control message"></textarea>
   <br>
   <button class="btn btn-info reply" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
