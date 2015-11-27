@@ -1,5 +1,6 @@
 <div>
      <div ng-repeat="item in comments">
+        <img src={{item.comment.profile_url}} class="img-circle">
         <div class="bold">{{item.comment.name}}</div>
         <div id={{item.comment.id}}>{{item.comment.comment}}  {{item.commentcount}}</div>
         <span class="vote" ng-click="upVoteComment(item.comment.id); $event.stopPropagation()"; ng-class="{red : toggle}">4</span>
@@ -7,7 +8,6 @@
           <div ng-repeat="reply in item.reply" style="margin-bottom:20px;">
             <div class="bold">{{reply.reply_name}}</div>
             <div id={{reply.reply_id}}>{{reply.reply}} </div>
-            <span class="vote">UPVOTE</span>
           </div>
         </div>
         <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
