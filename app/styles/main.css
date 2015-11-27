@@ -62,7 +62,7 @@ body {
 .vote {
   display: inline-block;
   overflow: hidden;
-  width: 40px;
+  width: auto;
   height: 25px;
   cursor: pointer;
   /*background: url('http://i.stack.imgur.com/iqN2k.png');*/
@@ -70,13 +70,16 @@ body {
   color: #cac6c3;
 }
 .vote::before{content:"\25B2";}​
-.reply-item { margin-left: 45px;}
+.reply { margin-bottom: 20px;}
 .red {
   background-position: 0 2px;
 }
 textarea.form-control { margin: 10px 0px; }
 .btn-info.reply { margin-bottom: 10px; }
-textarea.ng-valid {  min-height: 100px; }
+
+textarea.form-control.message { min-height: 100px; }
+
+.bold { font-weight: bold;}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
