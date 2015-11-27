@@ -1,10 +1,13 @@
 <div>
      <div ng-repeat="item in comments">
-        <div id={{item.comment.id}}>{{item.comment.comment}} {{item.comment.name}} {{item.commentcount}}</div>
+        <div class="bold">{{item.comment.name}}</div>
+        <div id={{item.comment.id}}>{{item.comment.comment}}  {{item.commentcount}}</div>
         <span class="vote" ng-click="upVoteComment(item.comment.id); $event.stopPropagation()"; ng-class="{red : toggle}">4</span>
         <div style="margin-left:20px;" >
-          <div ng-repeat="reply in item.reply">
-            <div id={{reply.reply_id}}>{{reply.reply}} {{reply.reply_name}}</div>
+          <div ng-repeat="reply in item.reply" style="margin-bottom:20px;">
+            <div class="bold">{{reply.reply_name}}</div>
+            <div id={{reply.reply_id}}>{{reply.reply}} </div>
+            <span class="vote">UPVOTE</span>
           </div>
         </div>
         <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
@@ -12,7 +15,7 @@
     </div>
 </div>
 <form>
-  <textarea ng-model="message" class="form-control"></textarea>
+  <textarea ng-model="message" class="form-control message"></textarea>
   <br>
   <button class="btn btn-info reply" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
 </form>
