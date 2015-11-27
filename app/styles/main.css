@@ -81,14 +81,27 @@ textarea.form-control.message { min-height: 100px; }
   width:100%;
   height:130px;
   margin-bottom: 20px;
-  clear: both;
-  vertical-align: middle;
+  display : flex;
+  align-items : center;
 }
 .container.tech .product:hover { background-color: #F7F7FA; }
 .container.tech .product .product-image { 
   width:100px;height:100px;float: left;
 }
 .container.tech .product .product-image img { width: 100px; height: 100px; }
+.container .product .product-details { 
+  display : flex;
+  align-items : center;
+  height:130px;
+  margin-left:10px; 
+}
+.container .product .product-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #bbbbbb;
+}
+.container .upvote-count { padding: 0px 10px; }
+.text-center { text-align: center;}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
