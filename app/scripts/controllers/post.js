@@ -5,9 +5,9 @@ var myapp = angular.module('phApp.PostView',['ngRoute','ngStorage'])
 myapp.controller('PostCtrl', function($scope,$http,$localStorage,apiservice) {
     $scope.savePost = function (files) {
       var post = {};
-      post.title = $scope.Title;
-      post.url = $scope.Url;
-      post.product_name = $scope.product_name;
+      post.title = $scope.title;
+      post.url = $scope.url;
+      post.product_name = $scope.name;
       post.user_id = $localStorage.user_id;
       var fd = new FormData();
       angular.forEach($scope.files,function(file){
