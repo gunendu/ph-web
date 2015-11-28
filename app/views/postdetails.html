@@ -1,11 +1,15 @@
 <div class="comment-holder">
      <div ng-repeat="item in comments">
-        <img src={{item.comment.profile_url}} class="img-circle">
+       <div class="followrow">
+        <a ng-click="go('/profile/',item.comment.userid)"> <img src={{item.comment.profile_url}} class="img-circle"/>
+        </a>
+       </div>
         <div class="bold">{{item.comment.name}}</div>
         <div id={{item.comment.id}}>{{item.comment.comment}}  {{item.commentcount}}</div>
         <span class="vote" ng-click="upVoteComment(item.comment.id); $event.stopPropagation()"; ng-class="{red : toggle}">4</span>
         <div style="margin-left:20px;" >
           <div ng-repeat="reply in item.reply" style="margin-bottom:20px;">
+            <img src={{reply.profile_url}} class="img-circle" ng-click="go('/profile/',reply.ruserid)">
             <div class="bold">{{reply.reply_name}}</div>
             <div id={{reply.reply_id}}>{{reply.reply}} </div>
           </div>

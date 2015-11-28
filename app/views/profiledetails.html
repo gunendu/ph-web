@@ -1,8 +1,7 @@
-
-<div class="container" ng-controller="ProfileDetailsCtrl">
-        <div ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" style="width:100%;height:180px;border-bottom:solid 1px grey;padding-top:15px;">
-         <div style="width:50px;float:left;">
-          <div style='    text-align: center;margin-top: 50%;'>
+<div class="container" ng-controller="ProfileCtrl">
+    <div ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" style="width:100%;height:180px;border-bottom:solid 1px grey;padding-top:15px;">
+      <div style="width:50px;float:left;">
+      <div style='    text-align: center;margin-top: 50%;'>
            <span class="vote" ng-click="upVote(item.id); $event.stopPropagation()"; ng-class="{red : toggle}"> </span>
            <span>{{item.vote}}</span>
          </div>

@@ -47,5 +47,4 @@ angular.module('phApp.MainView',['ngRoute','ngStorage'])
      }
      $scope.vote = 0;
      item();
-  });
-;
+});

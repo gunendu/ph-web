@@ -21,6 +21,7 @@ angular
     'phApp.MainView',
     'phApp.PostView',
     'phApp.PostViewDetails',
+    'phApp.ProfileView',
     'phApp.apiservice'
   ])
   .config(function ($routeProvider) {
@@ -45,9 +46,9 @@ angular
         controller: 'PostDetailsCtrl',
         controllerAs: 'postdetails'
       })
-      .when('/profile', {
+      .when('/profile/:user_id', {
          templateUrl: 'views/profiledetails.html',
-         controller: 'ProfileDetailsCtrl',
+         controller: 'ProfileCtrl',
          controllerAs: 'profiledetails'
       })
       .otherwise({

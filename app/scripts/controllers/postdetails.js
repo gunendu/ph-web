@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
-  .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,apiservice) {
+  .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice) {
   $scope.post_id = $routeParams.post_id;
   $scope.toggle = false;
   $scope.sendComment = function(message) {
@@ -69,5 +69,9 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage'])
         });
     }
   }
+  $scope.go = function(path,id) {
+      console.log("profile is clicked",id,path);
+      $location.path(path+id);
+  };
   getComments();
   });
