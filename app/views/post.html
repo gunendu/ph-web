@@ -1,23 +1,23 @@
-<form class="form-horizontal" role="form" ng-controller="PostCtrl">
-  <div class="form-group">
-    <label for="inputName3" class="col-sm-2 control-label">Title</label>
-    <div class="col-sm-4">
+<form class="form-horizontal product-create-form" role="form" ng-controller="PostCtrl">
+  <div class="form-group create-product">
+    <label for="inputName3" class="control-label">Title</label>
+    <div class="product-input">
       <input class="form-control" id="inputName3" placeholder="Title" ng-model="title">
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputName3" class="col-sm-2 control-label">Product</label>
-    <div class="col-sm-4">
+  <div class="form-group create-product">
+    <label for="inputName3" class="control-label">Product</label>
+    <div class="product-input">
       <input class="form-control" id="inputName3" placeholder="Product Name" ng-model="name">
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Url</label>
-    <div class="col-sm-4">
+  <div class="form-group create-product">
+    <label for="inputEmail3" class="control-label">Url</label>
+    <div class="product-input">
       <input class="form-control" id="inputEmail3" placeholder="Url" ng-model="url">
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group create-product">
     <div class="submit-holder">
       <input type="file"  file-input="files" multiple />
       <li ng-repeat="file in files">{{file.name}}</li><br>
