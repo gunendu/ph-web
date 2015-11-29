@@ -1,7 +1,7 @@
 <div class="comment-holder">
      <div ng-repeat="item in comments">
        <div class="followrow">
-        <a ng-click="go('/profile/',item.comment.userid)"> <img src={{item.comment.profile_url}} class="img-circle"/>
+        <a ng-click="go('/profile/',item.comment.userid)"> <img src={{item.comment.profile_image}} class="img-circle"/>
         </a>
        </div>
         <div class="bold">{{item.comment.name}}</div>

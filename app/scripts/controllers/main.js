@@ -8,25 +8,27 @@
  * Controller of the phApp
  */
 angular.module('phApp.MainView',['ngRoute','ngStorage'])
-  .controller('MainCtrl', function ($scope,$location,$rootScope,$localStorage,apiservice) {
+  .controller('MainCtrl', function ($route,$scope,$location,$rootScope,$localStorage,apiservice) {
      $scope.toggle = false;
      var item = function () {
-     var posts = apiservice.getPosts.get(function() {
+      console.log("userid is",$localStorage.user_id);
+       var posts = apiservice.getPosts.get({userid:$localStorage.user_id},function() {
        $scope.result = posts.result;
        console.log("results",$scope.result);
      });
      }
-     $scope.upVote = function (index) {
+     $scope.upVote = function (index,flag) {
         $scope.toggle = !$scope.toggle;
         var post = {};
         post.post_id = index;
         post.user_id = $localStorage.user_id;
-        if($scope.toggle) {
+        if(!flag) {
           apiservice.votePosts.save(post,
             function(response) {
               console.log("Success upvoting Post",response);
+              $route.reload();
             },
-            function(err){
+            function(err) {
               console.log("upVote error",err.data.error.code);
               $location.path('/login');
             });
@@ -35,6 +37,7 @@ angular.module('phApp.MainView',['ngRoute','ngStorage'])
           apiservice.downVotePost.save(post,
             function(response) {
               console.log("Success downvoting Post",response);
+              $route.reload();
             },
             function(err) {
               console.log("downVote error",err.data.console.code);
