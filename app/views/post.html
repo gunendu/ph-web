@@ -18,9 +18,10 @@
     </div>
   </div>
   <div class="form-group">
-    <input type="file" file-input="files" multiple />
-    <button ng-click="savePost()" >Submit</button>
-    <li ng-repeat="file in files">{{file.name}}</li>
+    <div class="submit-holder">
+      <input type="file"  file-input="files" multiple />
+      <li ng-repeat="file in files">{{file.name}}</li><br>
+      <button class="btn btn-info submit" ng-click="savePost()" >Submit</button>
+    </div>
   </div>
-
 </form>

@@ -1,19 +1,19 @@
 <div class="container tech" ng-controller="MainCtrl">
-        <div ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" class="product">
-         <div class="upvote-count">
-          <div class ="text-center">
-           <span class="vote" ng-click="upVote(item.id,item.flag); $event.stopPropagation()"; ng-class="{red : item.flag}"> </span>
-           <div>{{item.vote}}</div>
-         </div>
-         </div>
-         <div class="product-image">
-           <img src={{item.image_url[0].default.url}}></a>
-         </div>
-         <div  class="product-details">
-           <div>
-             <p class="product-title">{{item.title}}</p>
-             <p class="product-url">{{item.product_name}}</p>
-          </div>
-        </div>
-       </div>
+  <div ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" class="product">
+   <div class="upvote-count">
+    <div class ="text-center">
+     <span class="vote" ng-click="upVote(item.id,item.flag); $event.stopPropagation()"; ng-class="{red : item.flag}"> </span>
+     <div>{{item.vote}}</div>
+   </div>
+   </div>
+   <div class="product-image">
+     <img src={{item.image_url[0].default.url}}></a>
+   </div>
+   <div  class="product-details">
+     <div>
+       <p class="product-title">{{item.title}}</p>
+       <p class="product-url">{{item.product_name}}</p>
+    </div>
+  </div>
+ </div>
 </div>

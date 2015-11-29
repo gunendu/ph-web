@@ -1,27 +1,35 @@
 <div class="comment-holder">
   <div id="partners">
-  <div class="logo-image" ng-repeat="item in comments.image_urls track by $index">
-    <img src={{item.default.url}} alt="Placeholder Image"/>
+    <div class="logo-image" ng-repeat="item in comments.image_urls track by $index">
+      <img src={{item.default.url}} alt="Placeholder Image"/>
+    </div>
   </div>
-  </div>
-     <div ng-repeat="item in comments.comments">
-       <div class="followrow">
-        <a ng-click="go('/profile/',item.comment.userid)"> <img src={{item.comment.profile_image}} class="img-circle"/>
+  <div ng-repeat="item in comments.comments" class="comments">
+    <div class="main-comment">
+      <div class="followrow">
+        <a ng-click="go('/profile/',item.comment.userid)"> <img src={{item.comment.profile_image}} class="img-circle comment-image"/>
         </a>
-       </div>
+      </div>
+      <div>
         <div class="bold">{{item.comment.name}}</div>
         <div id={{item.comment.id}}>{{item.comment.comment}}  {{item.commentcount}}</div>
         <span class="vote" ng-click="upVoteComment(item.comment.id); $event.stopPropagation()"; ng-class="{red : toggle}">4</span>
-        <div style="margin-left:20px;">
-          <div ng-repeat="reply in item.reply" style="margin-bottom:20px;">
-            <img src={{reply.profile_url}} class="img-circle" ng-click="go('/profile/',reply.ruserid)">
+      </div>
+    </div>
+    <div style="margin-left:20px;">
+      <div ng-repeat="reply in item.reply" style="margin-bottom:20px;">
+        <div class="flex-center">
+          <div style="margin-right:15px;"><img src={{reply.profile_url}} class="img-circle comment-image" ng-click="go('/profile/',reply.ruserid)"></div>
+          <div>
             <div class="bold">{{reply.reply_name}}</div>
             <div id={{reply.reply_id}}>{{reply.reply}} </div>
           </div>
         </div>
-        <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
-        <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.comment.id)">Reply</button>
+      </div>
+      <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
+      <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.comment.id)">Reply</button>
     </div>
+  </div>
 </div>
 <form class="comment-holder">
   <textarea ng-model="message" class="form-control message"></textarea>

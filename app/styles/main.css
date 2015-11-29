@@ -104,6 +104,19 @@ textarea.form-control.message { min-height: 100px; }
 .text-center { text-align: center;}
 
 .container .comment-holder { width: 768px; margin: 0 auto; }
+.container .comment-holder .followrow { margin-right: 15px; }
+.container .comment-holder .main-comment { display: flex; }
+.container .comment-holder .flex-center { display: flex; align-items:center;}
+.container .comment-holder .comment-image { width: 30px; height: 30px; }
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form { text-align: center; }
+.nav.main-nav { display: inline-block;float: none; }
+.nav.main-nav li { padding: 10px; }
+.nav.main-nav li.login { position: absolute; right: 0px; }
+
+.submit-holder { text-align: center; width: 700px; }
+.submit-holder input { display: inline-block; }
+.submit-holder .submit { margin-top: 15px;}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -137,6 +150,7 @@ body {
   white-space: nowrap;
   width: 50%;
   display: table;
+  margin-bottom: 15px;
 }
 
 .logo-image {
