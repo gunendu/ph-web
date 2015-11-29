@@ -126,3 +126,25 @@ textarea.form-control.message { min-height: 100px; }
 .red {
     color: red;
 }
+
+body {
+  margin: 0;
+}
+
+#partners {
+  height: 50px;
+  background-color: #eee;
+  white-space: nowrap;
+  width: 50%;
+  display: table;
+}
+
+.logo-image {
+  vertical-align: middle;
+  padding: 13px;
+  display: table-cell;
+}
+
+.logo-image img {
+  max-width: 100%;
+}
