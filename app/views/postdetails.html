@@ -1,7 +1,7 @@
 <div class="comment-holder">
   <div id="partners">
-    <div class="logo-image" ng-repeat="item in comments.image_urls track by $index">
-      <img src={{item.default.url}} alt="Placeholder Image"/>
+    <div class="logo-image" ng-repeat="item in comments.image_urls">
+      <img src={{item.default.url}} alt="Placeholder Image" />
     </div>
   </div>
   <div ng-repeat="item in comments.comments" class="comments">
