@@ -106,7 +106,7 @@ textarea.form-control.message { min-height: 100px; }
 .container .comment-holder { width: 768px; margin: 0 auto; }
 .container .comment-holder .followrow { margin-right: 15px; }
 .container .comment-holder .main-comment { display: flex; }
-.container .comment-holder .flex-center { display: flex; align-items:center;}
+.container  .flex-center { display: flex; align-items:center;}
 .container .comment-holder .comment-image { width: 30px; height: 30px; }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form { text-align: center; }
@@ -117,6 +117,18 @@ textarea.form-control.message { min-height: 100px; }
 .submit-holder { text-align: center; width: 700px; }
 .submit-holder input { display: inline-block; }
 .submit-holder .submit { margin-top: 15px;}
+
+.btn-success.btn-logout { 
+  margin-top: 10px; 
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+.container .create-product { display: flex; align-items:center; }
+.container .create-product .control-label {margin-right: 20px; min-width: 150px; }
+.container .product-create-form { width: 600px; margin: 0 auto; }
+.container .product-input { width: 300px; }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
