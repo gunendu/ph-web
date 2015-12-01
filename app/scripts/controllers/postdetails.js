@@ -2,10 +2,6 @@
 
 angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
   .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document) {
-    $scope.images = [
-      {thumb: 'https://staging-zipprmedia.s3.amazonaws.com/images/scaledKeyhamlet1.png',img: 'https://staging-zipprmedia.s3.amazonaws.com/images/hamlet1.png', description: 'Image 1'},
-      {thumb: 'https://staging-zipprmedia.s3.amazonaws.com/images/scaledKeyzippr.jpeg',img: 'https://staging-zipprmedia.s3.amazonaws.com/images/zippr.jpeg', description: 'Image 2'}
-    ];
   $scope.post_id = $routeParams.post_id;
   $scope.toggle = false;
   $scope.sendComment = function(message) {
@@ -25,10 +21,15 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
       });
   }
   var getComments = function() {
-     console.log("get comments is called");
      var response = apiservice.getComments.get({postid:$scope.post_id},function() {
        $scope.comments = response.result;
-       console.log("comments",$scope.comments);
+       $scope.images = [];
+       for(var item in $scope.comments.image_urls) {
+          var image = {};
+          image.thumb = $scope.comments.image_urls[item].scaled.url;
+          image.img = $scope.comments.image_urls[item].default.url;
+          $scope.images.push(image);
+       }
      });
   }
   $scope.addReply = function(message,comment_id) {
