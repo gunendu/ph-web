@@ -3,8 +3,8 @@
 angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
   .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document) {
     $scope.images = [
-      {thumb: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81', img: 'https://staging-zipprmedia.s3.amazonaws.com/images/hamlet1.png', description: 'Image 1'},
-      {thumb: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81', img: 'https://staging-zipprmedia.s3.amazonaws.com/images/zippr.jpeg', description: 'Image 2'}
+      {thumb: 'https://staging-zipprmedia.s3.amazonaws.com/images/scaledKeyhamlet1.png',img: 'https://staging-zipprmedia.s3.amazonaws.com/images/hamlet1.png', description: 'Image 1'},
+      {thumb: 'https://staging-zipprmedia.s3.amazonaws.com/images/scaledKeyzippr.jpeg',img: 'https://staging-zipprmedia.s3.amazonaws.com/images/zippr.jpeg', description: 'Image 2'}
     ];
   $scope.post_id = $routeParams.post_id;
   $scope.toggle = false;
