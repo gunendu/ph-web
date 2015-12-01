@@ -1,9 +1,20 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/ngGallery.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/screen.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body ng-controller="PostDetailsCtrl as postdetailsctrl">
+
 <div class="comment-holder">
-  <div id="partners">
-    <div class="logo-image" ng-repeat="item in comments.image_urls">
-      <img src={{item.default.url}} alt="Placeholder Image" />
-    </div>
+  <div class="content">
+    <ng-gallery images="images" thumbs-num="2"></ng-gallery>
   </div>
+  <!--<div id="partners">
+    <div class="logo-image" ng-repeat="item in comments.image_urls">
+      <img src={{item.scaled.url}} alt="Placeholder Image" />
+    </div>
+  </div> -->
   <div ng-repeat="item in comments.comments" class="comments">
     <div class="main-comment">
       <div class="followrow">
@@ -36,3 +47,5 @@
   <br>
   <button class="btn btn-info reply" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
 </form>
+</body>
+</html>

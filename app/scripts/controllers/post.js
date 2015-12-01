@@ -13,6 +13,7 @@ myapp.controller('PostCtrl', function($scope,$http,$localStorage,apiservice) {
       angular.forEach($scope.files,function(file){
         fd.append('image',file);
       })
+
       fd.append('formdata',JSON.stringify(post));
 
       $http.post('http://localhost:9005/user/post', fd, {
