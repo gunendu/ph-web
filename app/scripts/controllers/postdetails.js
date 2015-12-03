@@ -23,6 +23,7 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
   var getComments = function() {
      var response = apiservice.getComments.get({postid:$scope.post_id},function() {
        $scope.comments = response.result;
+       console.log("comments",$scope.comments);
        $scope.images = [];
        for(var item in $scope.comments.image_urls) {
           var image = {};
@@ -47,26 +48,25 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
         console.log("error sending comments");
       });
   }
-  $scope.upVoteComment = function(comment_id) {
-    $scope.toggle = !$scope.toggle;
+  $scope.upVoteComment = function(comment_id,flag) {
     var comment = {};
     comment.comment_id = comment_id;
     comment.user_id = $localStorage.user_id;
-    if($scope.toggle) {
-      $scope.vote++;
+    if(flag) {
       apiservice.voteComment.save(comment,
         function(response) {
           console.log("Success upvoting Post",response);
+          $route.reload();
         },
         function(err){
           console.log("upVote error",err.data.error.code);
           $location.path('/login');
         });
     } else {
-      $scope.vote--;
       apiservice.downVoteComment.save(comment,
         function(response) {
           console.log("Success downvoting Post",response);
+          $route.reload();
         },
         function(err) {
           console.log("downVote error",err.data.console.code);
