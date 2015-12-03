@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
-  .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document) {
+  .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route) {
   $scope.post_id = $routeParams.post_id;
   $scope.toggle = false;
   $scope.sendComment = function(message) {
@@ -52,7 +52,7 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
     var comment = {};
     comment.comment_id = comment_id;
     comment.user_id = $localStorage.user_id;
-    if(flag) {
+    if(!flag) {
       apiservice.voteComment.save(comment,
         function(response) {
           console.log("Success upvoting Post",response);
@@ -69,11 +69,12 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
           $route.reload();
         },
         function(err) {
-          console.log("downVote error",err.data.console.code);
+          console.log("downVote error",err.data);
           $location.path('/login');
         });
     }
   }
+
   $scope.go = function(path,id) {
       console.log("profile is clicked",id,path);
       $location.path(path+id);
