@@ -68,7 +68,7 @@ return {
 
 });
 
-myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twitterservice) {
+myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twitterservice,apiservice) {
    $window.login = function() {
      srvAuth.checkLoginState();
    }
@@ -88,7 +88,20 @@ myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twit
         twitterservice.connectTwitter().then(function() {
             if (twitterservice.isReady()) {
                 console.log("authorization success");
-                twitterservice.getUserDetails().then(function() {
+                twitterservice.getUserDetails().then(function(response) {
+                  console.log("twitter response",response.email);
+                  var user = {};
+                  user.username = response.email;
+                  user.name = response.name;
+                  user.profile_url = response.profile_image_url_https;
+                  apiservice.register.save(user,function(response) {
+                    console.log("user register response is",response);
+                    $localStorage.username = user.username;
+                    $localStorage.name = user.name;
+                    $localStorage.user_id = response.result.insertId;
+                    $localStorage.accesstoken = response.result.token;
+                    console.log("localStorage data",$localStorage.accesstoken,$localStorage.username);
+                  });
                   $('#connectButton').fadeOut(function(){
                     $('#getTimelineButton, #signOut').fadeIn();
                   });
@@ -99,7 +112,7 @@ myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twit
     //sign out clears the OAuth cache, the user will have to reauthenticate when returning
    $scope.signOut = function() {
        twitterservice.clearCache();
-       $scope.tweets.length = 0;
+
        $('#getTimelineButton, #signOut').fadeOut(function(){
            $('#connectButton').fadeIn();
        });
