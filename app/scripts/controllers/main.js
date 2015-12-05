@@ -16,6 +16,7 @@ angular.module('phApp.MainView',['ngRoute','ngStorage','ngSanitize'])
      }
      var item = function () {
        var posts = apiservice.getPosts.get({userid:$localStorage.user_id},function() {
+       console.log("posts",posts.result);
        $scope.result = posts.result;
      });
      }
