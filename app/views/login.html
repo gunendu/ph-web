@@ -1,9 +1,8 @@
 <html>
 <head>
 <div class="container text-center" ng-controller="LoginCtrl">
-	<fb:login-button scope="public_profile,email,user_friends" class="fb-login" onlogin="login();">
-	</fb:login-button>
-	<br>
+	<button ng-click="login()" id="loginButton" type="button" class="btn btn-primary">Connect Facebook</button>
+	<button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
 	<button type="submit" ng-click="logout()" class="btn btn-success btn-logout">Logout</button>
 	<div id='fb-root'></div>
 	<style>
@@ -15,13 +14,12 @@
             margin-top: 15px;
             margin-bottom: 15px;
         }
-    </style>
+  </style>
 </div>
 </head>
 <body>
         <div class="row">
             <div class="col-xs-12">
-                <button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
                 <button ng-click="signOut()" id="signOut" type="button" class="btn btn-link" style="display:none;">Sign Out</button>
             </div>
         </div>

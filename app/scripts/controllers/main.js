@@ -7,14 +7,16 @@
  * # MainCtrl
  * Controller of the phApp
  */
-angular.module('phApp.MainView',['ngRoute','ngStorage'])
-  .controller('MainCtrl', function ($route,$scope,$location,$rootScope,$localStorage,apiservice) {
-     $scope.toggle = false;
+angular.module('phApp.MainView',['ngRoute','ngStorage','ngSanitize'])
+  .controller('MainCtrl', function ($route,$scope,$location,$rootScope,$localStorage,apiservice,$sce) {
+     $scope.profile_url = $localStorage.profile_url;
+     console.log("profile_url is",$scope.profile_url);
+     $scope.trustSrc = function(src) {
+       return $sce.trustAsResourceUrl($scope.profile_url);
+     }
      var item = function () {
-      console.log("userid is",$localStorage.user_id);
        var posts = apiservice.getPosts.get({userid:$localStorage.user_id},function() {
        $scope.result = posts.result;
-       console.log("results",$scope.result);
      });
      }
      $scope.upVote = function (index,flag) {
@@ -33,7 +35,6 @@ angular.module('phApp.MainView',['ngRoute','ngStorage'])
               $location.path('/login');
             });
         } else {
-          console.log("down vote is called");
           apiservice.downVotePost.save(post,
             function(response) {
               console.log("Success downvoting Post",response);

@@ -44,10 +44,11 @@ var checkLoginState = function() {
           $localStorage.username = user.username;
           $localStorage.name = user.name;
           $localStorage.user_id = response.result.insertId;
-          $localStorage.accesstoken = response.result.token;
+          $localStorage.profile_url = user.profile_url;
           console.log("localStorage data",$localStorage.accesstoken,$localStorage.username);
+          $location.path('/');
         });
-        $location.path('');
+
       });
     });
 }
@@ -68,8 +69,9 @@ return {
 
 });
 
-myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twitterservice,apiservice) {
-   $window.login = function() {
+myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twitterservice,apiservice,$location) {
+   $scope.login = function() {
+     console.log("login is triggered");
      srvAuth.checkLoginState();
    }
    $scope.logout = function() {
@@ -87,23 +89,17 @@ myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twit
     $scope.connectButton = function() {
         twitterservice.connectTwitter().then(function() {
             if (twitterservice.isReady()) {
-                console.log("authorization success");
                 twitterservice.getUserDetails().then(function(response) {
-                  console.log("twitter response",response.email);
                   var user = {};
                   user.username = response.email;
                   user.name = response.name;
                   user.profile_url = response.profile_image_url_https;
                   apiservice.register.save(user,function(response) {
-                    console.log("user register response is",response);
                     $localStorage.username = user.username;
                     $localStorage.name = user.name;
                     $localStorage.user_id = response.result.insertId;
-                    $localStorage.accesstoken = response.result.token;
-                    console.log("localStorage data",$localStorage.accesstoken,$localStorage.username);
-                  });
-                  $('#connectButton').fadeOut(function(){
-                    $('#getTimelineButton, #signOut').fadeIn();
+                    $localStorage.profile_url = response.result.profile_url;
+                    $location.path('/');
                   });
                 })
             }

@@ -27,12 +27,12 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/login', {
+      .when('/logout', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
@@ -53,6 +53,6 @@ angular
          controllerAs: 'profiledetails'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/main'
       });
   });
