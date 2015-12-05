@@ -5,14 +5,15 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
+
 <div class="comment-holder">
   <div class="content">
-    <ng-gallery images="images" thumbs-num="2"></ng-gallery>
+    <ng-gallery images="images" thumbs-num="5"></ng-gallery>
   </div>
   <div ng-repeat="item in comments.comments" class="comments">
     <div class="main-comment">
       <div class="followrow">
-        <a ng-click="go('/profile/',item.comment.userid)"> <img src={{item.comment.profile_image}} class="img-circle comment-image"/>
+        <a ng-click="go('/profile/',item.userid)"> <img src={{item.profile_image}} class="img-circle comment-image"/>
         </a>
       </div>
       <div>
@@ -27,12 +28,13 @@
           <div style="margin-right:15px;"><img src={{reply.profile_url}} class="img-circle comment-image" ng-click="go('/profile/',reply.ruserid)"></div>
           <div>
             <div class="bold">{{reply.reply_name}}</div>
-            <div id={{reply.reply_id}}>{{reply.reply}} </div>
+            <div id={{reply.reply_id}}>{{reply.reply}}</div>
+            <span class="vote" ng-click="upVoteReply(reply.reply_id,item.id,item.flag); $event.stopPropagation()"; ng-class="{red : flag}">{{item.votecount}}</span>
           </div>
         </div>
       </div>
       <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
-      <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.comment.id)">Reply</button>
+      <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.id)">Reply</button>
     </div>
   </div>
 </div>

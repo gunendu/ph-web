@@ -14,6 +14,7 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
     apiservice.comment.save(comment,
       function(response) {
         console.log("comment save response",response);
+        $route.reload();
       },
       function(err) {
         console.log("error saving comment",err);
@@ -64,6 +65,34 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
         });
     } else {
       apiservice.downVoteComment.save(comment,
+        function(response) {
+          console.log("Success downvoting Post",response);
+          $route.reload();
+        },
+        function(err) {
+          console.log("downVote error",err.data);
+          $location.path('/login');
+        });
+    }
+  }
+
+  $scope.upVoteReply = function(reply_id,comment_id,flag) {
+    var reply = {};
+    reply.reply_id = reply_id;
+    reply.comment_id = comment_id;
+    reply.user_id = $localStorage.user_id;
+    if(!flag) {
+      apiservice.voteReply.save(reply,
+        function(response) {
+          console.log("Success upvoting Post",response);
+          $route.reload();
+        },
+        function(err){
+          console.log("upVote error",err.data.error.code);
+          $location.path('/login');
+        });
+    } else {
+      apiservice.downVoteReply.save(reply,
         function(response) {
           console.log("Success downvoting Post",response);
           $route.reload();

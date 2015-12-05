@@ -14,7 +14,9 @@ myapp.factory('apiservice', function($resource,$localStorage,$http) {
           reply = $resource('http://localhost:9005/user/reply'),
           voteComment = $resource('http://localhost:9005/user/voteComment'),
           downVoteComment = $resource('http://localhost:9005/user/downVoteComment'),
-          getUserDetails = $resource('http://localhost:9005/user/votedpost/:userid');
+          getUserDetails = $resource('http://localhost:9005/user/votedpost/:userid'),
+          voteReply = $resource('http://localhost:9005/user/votereply'),
+          downVoteReply = $resource('http://localhost:9005/user/downvotereply');
       return {
         register: register,
         post: post,
@@ -26,6 +28,8 @@ myapp.factory('apiservice', function($resource,$localStorage,$http) {
         reply: reply,
         voteComment: voteComment,
         downVoteComment: downVoteComment,
-        getUserDetails: getUserDetails
+        getUserDetails: getUserDetails,
+        voteReply: voteReply,
+        downVoteReply: downVoteReply
       };
 });

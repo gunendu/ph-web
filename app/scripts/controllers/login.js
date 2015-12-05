@@ -68,7 +68,7 @@ return {
 
 });
 
-myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth) {
+myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twitterservice) {
    $window.login = function() {
      srvAuth.checkLoginState();
    }
@@ -81,4 +81,28 @@ myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth) {
        console.log("logout is success",response);
      });
    }
+   twitterservice.initialize();
+
+   //when the user clicks the connect twitter button, the popup authorization window opens
+    $scope.connectButton = function() {
+        twitterservice.connectTwitter().then(function() {
+            if (twitterservice.isReady()) {
+                console.log("authorization success");
+                twitterservice.getUserDetails().then(function() {
+                  $('#connectButton').fadeOut(function(){
+                    $('#getTimelineButton, #signOut').fadeIn();
+                  });
+                })
+            }
+        });
+    }
+    //sign out clears the OAuth cache, the user will have to reauthenticate when returning
+   $scope.signOut = function() {
+       twitterservice.clearCache();
+       $scope.tweets.length = 0;
+       $('#getTimelineButton, #signOut').fadeOut(function(){
+           $('#connectButton').fadeIn();
+       });
+   }
+
 });
