@@ -4,12 +4,13 @@
     <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/screen.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="1/thumbs2.css" rel="stylesheet" />
-    <link href="1/thumbnail-slider.css" rel="stylesheet" type="text/css" />
-    <script src="1/thumbnail-slider.js" type="text/javascript"></script>
+    <link href="5/tooltip.css" rel="stylesheet" />
+    <script src="5/tooltip.js"></script>
+    <link href="5/thumbnail-slider.css" rel="stylesheet" type="text/css" />
+    <script src="5/thumbnail-slider.js" type="text/javascript"></script>
     <style>
-        body {font: normal 0.9em Arial;color: #222;}
-        header {display:block; font-size:1.2em; margin-bottom:100px;}
+        body {font: normal 0.9em Arial;color: #222;margin:0;}
+        header {display: block;font-size: 1.2em;margin-bottom:100px;}
         header a, header span {
             display: inline-block;
             padding: 4px 8px;
@@ -70,35 +71,69 @@
   <br>
   <button class="btn btn-info reply" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
 </form>
-<div style="max-width:900px;margin:0 auto;padding:10px 0;">
-    <div style="float:left;padding-top:100px;">
-        <div id="thumbnail-slider">
-            <div class="inner">
-                <ul>
-                    <li>
-                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
-                    </li>
-                    <li>
-                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
-                    </li>
-
-                    <li>
-                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
-                    </li>
-                    <li>
-                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
-                    </li>
-                    <li>
-                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
-                    </li>
-                    <li>
-                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
-                    </li>
-                </ul>
-            </div>
+<div style="padding:220px 0 100px;">
+    <div id="thumbnail-slider">
+        <div class="inner">
+            <ul>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                        <h3>Pellentesque at Felis</h3>
+                        Nulla porttitor fringilla dui vel pulvinar. Nam sodales, diam eu faucibus convallis.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                        <h3>Condimentum Posuere</h3>
+                        Sed tincidunt mi ut ligula rutrum dictum. Nam varius in nunc eget viverra.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                        <h3>Lorem Ipsum</h3>
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                        <h3>Mauris Suscipit</h3>
+                        Quisque luctus, dui nec condimentum interdum et sodales nulla ante at nunc.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                        <h3>Nullam Mattis</h3>
+                        Maecenas volutpat accumsan nibh ut gravida. Praesent id laoreet libero. Felis at volutpat egestas.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                        <h3>Quisque Quam Eros</h3>
+                        Vivamus dictum pulvinar sem in ultricies. Vestibulum sit amet posuere dui.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                        <h3>Duis Faucibus Aliquam Tincidunt</h3>
+                        Nunc tempor massa in purus lobortis dapibus ac eget nulla.
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
-    <div style="clear:both;"></div>
 </div>
+<script>
+    //Note: this script should be placed at the bottom of the page, or after the slider markup. It cannot be placed in the head section of the page.
+    var slides = document.getElementById("thumbnail-slider").getElementsByTagName("li");
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].onmouseover = function (e) {
+            var li = this;
+            if (li.thumb) {
+                var content = "<img src='" + li.thumbSrc + "' />" + li.thumb.innerHTML;
+                tooltip.pop(li, content);
+            }
+        };
+    }
+</script>
+
 </body>
 </html>
