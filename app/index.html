@@ -38,6 +38,11 @@
               <li><a class="text-black" ng-href="#/submit">Submit</a></li>
               <li><a class="text-black" ng-href="#/profile">Profile</a></li>
             </ul>
+	    <div data-toggle="popover" class='pop-down' data-placement="bottom" title="" data-content="
+        	<div><a class='text-gray' href='#logout'>logout</a></div>
+        	<div><a class='text-gray' href='#profile'>My Profile</a></div>
+      		">Login
+	   </div>
           <!--</div>-->
       </div>
     </div>
@@ -61,6 +66,8 @@
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="bower_components/oauth-js/dist/oauth.min.js"></script>
+	<script src="bower_components/ngGallery/src/js/ngGallery.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -74,7 +81,16 @@
         <script src="scripts/controllers/profiledetails.js"></script>
         <script src="scripts/services/api_service.js"></script>
         <script src="scripts/services/twitter_service.js"></script>
-        
+        <script type="text/javascript">
+	$(document).ready(function(){
+	    $('[data-toggle="popover"]').popover({
+		placement : 'bottom',
+		html:true,
+		
+	    });
+	$('.pop-down').css("margin-left","20px").addClass('pop-down-text-gray');
+	});
+</script>
 
 </body>
 </html>
