@@ -104,9 +104,18 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
     }
   }
 
+  $scope.facebookshare = function() {
+    FB.ui({
+      method: 'feed',
+      link: 'https://www.producthunt.com/tech/startup-stash',
+      caption: 'An example caption',
+    }, function(response){});
+  }
+
   $scope.go = function(path,id) {
       console.log("profile is clicked",id,path);
       $location.path(path+id);
   };
+
   getComments();
   });
