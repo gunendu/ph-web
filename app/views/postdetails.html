@@ -3,18 +3,37 @@
     <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/ngGallery.css">
     <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/screen.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="1/thumbs2.css" rel="stylesheet" />
+    <link href="1/thumbnail-slider.css" rel="stylesheet" type="text/css" />
+    <script src="1/thumbnail-slider.js" type="text/javascript"></script>
+    <style>
+        body {font: normal 0.9em Arial;color: #222;}
+        header {display:block; font-size:1.2em; margin-bottom:100px;}
+        header a, header span {
+            display: inline-block;
+            padding: 4px 8px;
+            margin-right: 10px;
+            border: 2px solid #000;
+            background: #DDD;
+            color: #000;
+            text-decoration: none;
+            text-align: center;
+            height: 20px;
+        }
+        header span {background:white;}
+        a {color: #1155CC;}
+    </style>
 </head>
-
 
 <div class="comment-holder">
   <div class="content">
     <ng-gallery images="images" thumbs-num="5"></ng-gallery>
   </div>
-
-<div id="right">
-  <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="gunendu">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-</div>
+  <div id="test">
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="gunendu">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
 
 <button ng-click="facebookshare()" type="button" class="btn btn-primary">Facebook</button>
 
@@ -51,5 +70,35 @@
   <br>
   <button class="btn btn-info reply" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
 </form>
+<div style="max-width:900px;margin:0 auto;padding:10px 0;">
+    <div style="float:left;padding-top:100px;">
+        <div id="thumbnail-slider">
+            <div class="inner">
+                <ul>
+                    <li>
+                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
+                    </li>
+                    <li>
+                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
+                    </li>
+
+                    <li>
+                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
+                    </li>
+                    <li>
+                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
+                    </li>
+                    <li>
+                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
+                    </li>
+                    <li>
+                        <a class="thumb" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1507900_10151842209257595_366437610_n.jpg?oh=80e3e1aa9fd6c02ef7cfce5d10235b4a&oe=56ED109E&__gda__=1458131288_008a7a036f2d466466f2fa2298717d81"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 </body>
 </html>
