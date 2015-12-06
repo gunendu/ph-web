@@ -10,6 +10,14 @@
   <div class="content">
     <ng-gallery images="images" thumbs-num="5"></ng-gallery>
   </div>
+
+<div id="right">
+  <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="gunendu">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+<button ng-click="facebookshare()" type="button" class="btn btn-primary">Facebook</button>
+
   <div ng-repeat="item in comments.comments" class="comments">
     <div class="main-comment">
       <div class="followrow">

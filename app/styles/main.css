@@ -118,8 +118,8 @@ textarea.form-control.message { min-height: 100px; }
 .submit-holder input { display: inline-block; }
 .submit-holder .submit { margin-top: 15px;}
 
-.btn-success.btn-logout { 
-  margin-top: 10px; 
+.btn-success.btn-logout {
+  margin-top: 10px;
   color: #fff;
   background-color: #31b0d5;
   border-color: #269abc;
@@ -173,4 +173,13 @@ body {
 
 .logo-image img {
   max-width: 100%;
+}
+
+#social{
+    background:green;
+    float:right;
+}
+
+#right{
+  float:right;width:100px;
 }
