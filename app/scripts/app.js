@@ -55,4 +55,7 @@ angular
       .otherwise({
         redirectTo: '/main'
       });
+  })
+  .config(function($sceDelegateProvider) {
+      $sceDelegateProvider.resourceUrlWhitelist(['**']);
   });

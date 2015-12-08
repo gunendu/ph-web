@@ -73,12 +73,12 @@
 </form>
 <div style="padding:220px 0 100px;">
     <div id="thumbnail-slider">
-        <div class="inner">
+       <div class="inner">
             <ul>
                 <li>
-                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                    <a class="thumb" href="{{comments.users[0].profile_url}}">
                         <h3>Pellentesque at Felis</h3>
-                        Nulla porttitor fringilla dui vel pulvinar. Nam sodales, diam eu faucibus convallis.
+                        a porttitor fringilla dui vel pulvinar. Nam sodales, diam eu faucibus convallis.
                     </a>
                 </li>
                 <li>
@@ -88,7 +88,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                    <a class="thumb" href="{{comments.users[0].profile_url}}">
                         <h3>Lorem Ipsum</h3>
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
                     </a>
@@ -105,35 +105,24 @@
                         Maecenas volutpat accumsan nibh ut gravida. Praesent id laoreet libero. Felis at volutpat egestas.
                     </a>
                 </li>
-                <li>
-                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
-                        <h3>Quisque Quam Eros</h3>
-                        Vivamus dictum pulvinar sem in ultricies. Vestibulum sit amet posuere dui.
-                    </a>
-                </li>
-                <li>
-                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
-                        <h3>Duis Faucibus Aliquam Tincidunt</h3>
-                        Nunc tempor massa in purus lobortis dapibus ac eget nulla.
-                    </a>
-                </li>
             </ul>
-        </div>
+      </div>
     </div>
 </div>
 <script>
-    //Note: this script should be placed at the bottom of the page, or after the slider markup. It cannot be placed in the head section of the page.
     var slides = document.getElementById("thumbnail-slider").getElementsByTagName("li");
     for (var i = 0; i < slides.length; i++) {
         slides[i].onmouseover = function (e) {
             var li = this;
+            var scope = angular.element(li);
+            console.log("scope ",scope);
             if (li.thumb) {
                 var content = "<img src='" + li.thumbSrc + "' />" + li.thumb.innerHTML;
+                console.log("content",content);
                 tooltip.pop(li, content);
             }
         };
     }
 </script>
-
 </body>
 </html>
