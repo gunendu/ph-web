@@ -10,6 +10,8 @@ body {
 }
 
 .text-black { color: black; }
+.text-gray { color: #bbbbbb; }
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -87,9 +89,14 @@ textarea.form-control.message { min-height: 100px; }
 }
 .container.tech .product:hover { background-color: #F7F7FA; }
 .container.tech .product .product-image {
-  width:100px;height:100px;float: left;
+  width: 130px; height: 90px; float: left;
 }
-.container.tech .product .product-image img { width: 100px; height: 100px; }
+.container.tech .product .product-image img { 
+	width: 130px; 
+	height: 90px; 
+	border-radius: 3px;
+	flex:1;
+}
 .container .product .product-details {
   display : flex;
   align-items : center;
@@ -101,16 +108,47 @@ textarea.form-control.message { min-height: 100px; }
   margin-bottom: 5px;
   color: #bbbbbb;
 }
+.container .product .web {
+	webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    padding: 2px 4px 1px;
+    color: #bbbbbb;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 2px solid rgba(187,187,187,0.5);
+    border-radius: 4px;
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 5px;
+}
 .container .upvote-count { padding: 0px 10px; }
+
 .text-center { text-align: center;}
 
-.container .comment-holder { width: 768px; margin: 0 auto; }
+.container .comment-holder { width: 960px; margin: 0 auto; display: flex; }
 .container .comment-holder .followrow { margin-right: 15px; }
 .container .comment-holder .main-comment { display: flex; }
 .container  .flex-center { display: flex; align-items:center;}
 .container .comment-holder .comment-image { width: 30px; height: 30px; }
-
+.container .comment-holder .social-media-holder { 
+	display: flex; 
+	justify-content:center;
+	min-width: 300px;
+}
+.container .comment-holder .social-media-holder div {
+	margin: 5px; 
+}
 .header .main-navbar { 
+  margin: 0px 15px;
   height: 50px; 
   box-shadow: 0 1px 0 0 rgba(0,0,0,0.05),0 2px 4px 0 rgba(0,0,0,0.06);
   background-color: white;
@@ -121,7 +159,7 @@ textarea.form-control.message { min-height: 100px; }
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form { text-align: center; }
-.header .main-navbar li a { color: black; }
+.header .main-navbar li a { color: black; font-size: 12px!important; }
 .header .main-navbar ul { margin:  0 auto; }
 
 .submit-holder { text-align: center; width: 700px; }
@@ -136,7 +174,7 @@ textarea.form-control.message { min-height: 100px; }
 }
 
 .container .create-product { display: flex; align-items:center; }
-.container .create-product .control-label {margin-right: 20px; min-width: 150px; }
+.container .create-product .control-label { margin-right: 20px; min-width: 150px; }
 .container .product-create-form { width: 600px; margin: 0 auto; }
 .container .product-input { width: 300px; }
 

@@ -1,28 +1,32 @@
 <div class="container tech" ng-controller="MainCtrl">
-  <div class="dropdown">
+  <!--<div class="dropdown">
       <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" src={{trustSrc}}>login
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
         <li><a href="#logout">logout</a></li>
         <li><a href="#profile">My Profile</a></li>
       </ul>
-  </div>
+  </div>-->
   <div ng-repeat="item in result" ng-click="go('/postdetails/',item.id)" class="product">
-   <div class="upvote-count">
-    <div class ="text-center">
-     <span class="vote" ng-click="upVote(item.id,item.flag); $event.stopPropagation()"; ng-class="{red : item.flag}"> </span>
-     <div>{{item.vote}}</div>
-   </div>
-   </div>
-   <div class="product-image">
-     <img src={{item.image_url[0].thumbnail.url}}></a>
-   </div>
-   <div  class="product-details">
-     <div>
+    <div class="upvote-count">
+      <div class ="text-center">
+        <span class="vote" ng-click="upVote(item.id,item.flag); $event.stopPropagation()"; ng-class="{red : item.flag}"> </span>
+        <div>{{item.vote}}</div>
+      </div>
+    </div>
+    <div class="product-image">
+     <img src={{item.image_url[0].thumbnail.url}}/>
+    </div>
+    <div  class="product-details">
+      <div>
        <p class="product-title">{{item.title}}</p>
        <p class="product-url">{{item.product_name}}</p>
-       <p class="comment-count">{{item.commentcount}}</p>
+       <span class="web">web</span>
+      </div>
     </div>
-  </div>
+    <div class="vote-record">
+      <i class="fa fa-comments-o text-gray"></i>
+      <p class="comment-count">{{item.commentcount}}</p>
+    </div>
  </div>
 </div>
