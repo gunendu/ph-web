@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/ngGallery.css">
     <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/screen.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="5/tooltip.css" rel="stylesheet" />
     <script src="5/tooltip.js"></script>
@@ -25,46 +25,48 @@
         header span {background:white;}
         a {color: #1155CC;}
     </style>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <div class="comment-holder">
-  <div class="content">
-    <ng-gallery images="images" thumbs-num="5"></ng-gallery>
-  </div>
-  <div id="test">
-      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="gunendu">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </div>
-
-<button ng-click="facebookshare()" type="button" class="btn btn-primary">Facebook</button>
-
-  <div ng-repeat="item in comments.comments" class="comments">
-    <div class="main-comment">
-      <div class="followrow">
-        <a ng-click="go('/profile/',item.userid)"> <img src={{item.profile_image}} class="img-circle comment-image"/>
-        </a>
-      </div>
-      <div>
-        <div class="bold">{{item.name}}</div>
-        <div id={{item.comment.id}}>{{item.comment}}</div>
-        <span class="vote" ng-click="upVoteComment(item.id,item.flag); $event.stopPropagation()"; ng-class="{red : item.flag}">{{item.votecount}}</span>
-      </div>
-    </div>
-    <div style="margin-left:20px;">
-      <div ng-repeat="reply in item.reply" style="margin-bottom:20px;">
-        <div class="flex-center">
-          <div style="margin-right:15px;"><img src={{reply.profile_url}} class="img-circle comment-image" ng-click="go('/profile/',reply.ruserid)"></div>
+    <div>
+        <div class="content"><ng-gallery images="images" thumbs-num="5"></ng-gallery></div>
+        <div ng-repeat="item in comments.comments" class="comments">
+        <div class="main-comment">
+          <div class="followrow">
+            <a ng-click="go('/profile/',item.userid)"> <img src={{item.profile_image}} class="img-circle comment-image"/>
+            </a>
+          </div>
           <div>
-            <div class="bold">{{reply.reply_name}}</div>
-            <div id={{reply.reply_id}}>{{reply.reply}}</div>
-            <span class="vote" ng-click="upVoteReply(reply.reply_id,item.id,item.flag); $event.stopPropagation()"; ng-class="{red : flag}">{{item.votecount}}</span>
+            <div class="bold">{{item.name}}</div>
+            <div id={{item.comment.id}}>{{item.comment}}</div>
+            <span class="vote" ng-click="upVoteComment(item.id,item.flag); $event.stopPropagation()"; ng-class="{red : item.flag}">{{item.votecount}}</span>
           </div>
         </div>
-      </div>
-      <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
-      <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.id)">Reply</button>
+        <div style="margin-left:20px;">
+          <div ng-repeat="reply in item.reply" style="margin-bottom:20px;">
+            <div class="flex-center">
+              <div style="margin-right:15px;"><img src={{reply.profile_url}} class="img-circle comment-image" ng-click="go('/profile/',reply.ruserid)"></div>
+              <div>
+                <div class="bold">{{reply.reply_name}}</div>
+                <div id={{reply.reply_id}}>{{reply.reply}}</div>
+                <span class="vote" ng-click="upVoteReply(reply.reply_id,item.id,item.flag); $event.stopPropagation()"; ng-class="{red : flag}">{{item.votecount}}</span>
+              </div>
+            </div>
+          </div>
+          <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
+          <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.id)">Reply</button>
+        </div>
+        </div>
     </div>
-  </div>
+    <div class="social-media-holder">
+        <div id="test">
+          <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="gunendu">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+          </script>
+        </div>
+        <div><button ng-click="facebookshare()" type="button" class="btn btn-primary">Facebook</button></div>
+    </div>
 </div>
 <form class="comment-holder">
   <textarea ng-model="message" class="form-control message"></textarea>
