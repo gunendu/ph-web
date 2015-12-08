@@ -74,7 +74,7 @@ body {
 }
 .vote::before{content:"\25B2";}​
 .reply { margin-bottom: 20px;}
-.red { background-position: 0 2px; }
+/*.red { background-position: 0 2px; }*/
 textarea.form-control { margin: 10px 0px; }
 .btn-info.reply { margin-bottom: 10px; }
 textarea.form-control.message { min-height: 100px; }
