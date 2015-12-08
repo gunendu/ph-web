@@ -4,8 +4,6 @@
     <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/screen.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="5/tooltip.css" rel="stylesheet" />
-    <script src="5/tooltip.js"></script>
     <link href="5/thumbnail-slider.css" rel="stylesheet" type="text/css" />
     <script src="5/thumbnail-slider.js" type="text/javascript"></script>
     <style>
@@ -78,31 +76,49 @@
        <div class="inner">
             <ul>
                 <li>
-                    <a class="thumb" href="{{comments.users[0].profile_url}}">
+                    <a class="thumb" href="{{comments.users[0].profile_url}}" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
                         <h3>Pellentesque at Felis</h3>
                         a porttitor fringilla dui vel pulvinar. Nam sodales, diam eu faucibus convallis.
                     </a>
                 </li>
                 <li>
-                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
                         <h3>Condimentum Posuere</h3>
                         Sed tincidunt mi ut ligula rutrum dictum. Nam varius in nunc eget viverra.
                     </a>
                 </li>
                 <li>
-                    <a class="thumb" href="{{comments.users[0].profile_url}}">
+                    <a class="thumb" href="{{comments.users[0].profile_url}}" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
                         <h3>Lorem Ipsum</h3>
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
                     </a>
                 </li>
                 <li>
-                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
                         <h3>Mauris Suscipit</h3>
                         Quisque luctus, dui nec condimentum interdum et sodales nulla ante at nunc.
                     </a>
                 </li>
                 <li>
-                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png">
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
+                        <h3>Nullam Mattis</h3>
+                        Maecenas volutpat accumsan nibh ut gravida. Praesent id laoreet libero. Felis at volutpat egestas.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
+                        <h3>Nullam Mattis</h3>
+                        Maecenas volutpat accumsan nibh ut gravida. Praesent id laoreet libero. Felis at volutpat egestas.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
+                        <h3>Nullam Mattis</h3>
+                        Maecenas volutpat accumsan nibh ut gravida. Praesent id laoreet libero. Felis at volutpat egestas.
+                    </a>
+                </li>
+                <li>
+                    <a class="thumb" href="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png" ng-mouseover="hoverIn(comments.users[0].profile_url,$event)">
                         <h3>Nullam Mattis</h3>
                         Maecenas volutpat accumsan nibh ut gravida. Praesent id laoreet libero. Felis at volutpat egestas.
                     </a>
@@ -111,20 +127,6 @@
       </div>
     </div>
 </div>
-<script>
-    var slides = document.getElementById("thumbnail-slider").getElementsByTagName("li");
-    for (var i = 0; i < slides.length; i++) {
-        slides[i].onmouseover = function (e) {
-            var li = this;
-            var scope = angular.element(li);
-            console.log("scope ",scope);
-            if (li.thumb) {
-                var content = "<img src='" + li.thumbSrc + "' />" + li.thumb.innerHTML;
-                console.log("content",content);
-                tooltip.pop(li, content);
-            }
-        };
-    }
-</script>
+
 </body>
 </html>

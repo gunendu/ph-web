@@ -117,5 +117,11 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
       $location.path(path+id);
   };
 
+  $scope.hoverIn = function(url,e) {
+    console.log("tag is",url,e.currentTarget);
+    var content = "<img src='" + url + "' />" + e.currentTarget.innerHTML;
+    tooltip.pop(e.currentTarget,content);
+  };
+
   getComments();
   });
