@@ -53,6 +53,7 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
     var comment = {};
     comment.comment_id = comment_id;
     comment.user_id = $localStorage.user_id;
+    console.log("comment object",comment);
     if(!flag) {
       apiservice.voteComment.save(comment,
         function(response) {
@@ -61,7 +62,7 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
         },
         function(err){
           console.log("upVote error",err.data.error.code);
-          $location.path('/login');
+          $location.path('/logout');
         });
     } else {
       apiservice.downVoteComment.save(comment,
@@ -71,7 +72,7 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
         },
         function(err) {
           console.log("downVote error",err.data);
-          $location.path('/login');
+          $location.path('/logout');
         });
     }
   }
@@ -99,7 +100,7 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
         },
         function(err) {
           console.log("downVote error",err.data);
-          $location.path('/login');
+          $location.path('/logout');
         });
     }
   }

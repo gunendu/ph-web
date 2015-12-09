@@ -99,7 +99,7 @@ myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twit
                     $localStorage.name = user.name;
                     $localStorage.user_id = response.result.insertId;
                     $localStorage.profile_url = response.result.profile_url;
-                    $location.path('/');
+                    $location.path('/main');
                   });
                 })
             }
