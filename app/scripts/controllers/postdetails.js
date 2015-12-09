@@ -24,7 +24,9 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
   var getComments = function() {
      var response = apiservice.getComments.get({postid:$scope.post_id},function() {
        $scope.comments = response.result;
-       console.log("comments",$scope.comments.users[0].profile_url);
+       console.log("comments",$scope.comments);
+       $scope.users = _.pluck(response.result.users,'profile_url');
+       console.log("users are",$scope.users);
        $scope.images = [];
        for(var item in $scope.comments.image_urls) {
           var image = {};
