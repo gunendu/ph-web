@@ -51,6 +51,10 @@ angular.module('phApp.MainView',['ngRoute','ngStorage','ngSanitize'])
      $scope.go = function(path,id) {
        $location.path(path+id);
      }
+     $scope.profile = function(path,param) {
+       console.log("path and param",path,param,$localStorage.username);
+       $location.path(path+param)
+     }
      $scope.vote = 0;
      item();
 });

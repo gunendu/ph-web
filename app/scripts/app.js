@@ -47,7 +47,7 @@ angular
         controller: 'PostDetailsCtrl',
         controllerAs: 'postdetails'
       })
-      .when('/profile/:user_id', {
+      .when('/profile', {
          templateUrl: 'views/profiledetails.html',
          controller: 'ProfileCtrl',
          controllerAs: 'profiledetails'

@@ -34,6 +34,7 @@ myapp.factory('srvAuth',function($rootScope,$location,$localStorage,apiservice) 
 
 var checkLoginState = function() {
     FB.getLoginStatus(function(response) {
+      console.log("response fb",response);
       getUserInfo(function(res) {
         var user = {};
         user.username = res.email;
