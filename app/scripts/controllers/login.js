@@ -45,6 +45,7 @@ var checkLoginState = function() {
           $localStorage.name = user.name;
           $localStorage.user_id = response.result.insertId;
           $localStorage.profile_url = user.profile_url;
+          $localStorage.accesstoken = response.result.token;
           console.log("localStorage data",$localStorage.accesstoken,$localStorage.username);
           $location.path('/');
         });
@@ -99,6 +100,7 @@ myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twit
                     $localStorage.name = user.name;
                     $localStorage.user_id = response.result.insertId;
                     $localStorage.profile_url = response.result.profile_url;
+                    $localStorage.accesstoken = response.result.token;
                     $location.path('/main');
                   });
                 })

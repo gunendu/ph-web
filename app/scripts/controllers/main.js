@@ -25,6 +25,7 @@ angular.module('phApp.MainView',['ngRoute','ngStorage','ngSanitize'])
         var post = {};
         post.post_id = index;
         post.user_id = $localStorage.user_id;
+        console.log("upvote object",post);
         if(!flag) {
           apiservice.votePosts.save(post,
             function(response) {
