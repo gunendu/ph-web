@@ -88,7 +88,7 @@ body {
 }
 .container.tech .product:hover { background-color: #F7F7FA; }
 .container.tech .product .product-image {
-  width: 130px; height: 90px; 
+  width: 130px; height: 90px;
 }
 .container.tech .product .product-image img {
 	width: 130px;
@@ -130,9 +130,9 @@ body {
     margin-top: 5px;
 }
 .container .upvote-count { padding: 0px 10px; }
-.container .vote-record { 
-  width: 100%; 
-  display: flex; 
+.container .vote-record {
+  width: 100%;
+  display: flex;
   align-items: baseline;
   justify-content: flex-end;
   flex: 1;
@@ -170,15 +170,15 @@ body {
   width: 70px;
 }
 .media-share.twit { background-color: #00a3e1; }
-textarea.form-control.message { 
+textarea.form-control.message {
   min-height: 100px;
-  margin: 0px; 
+  margin: 0px;
   border-radius: 0 0 2px 2px;
   border: 2px solid #cbd2d6;
   border-bottom: 0px;
 }
-textarea.form-control.reply { 
-  margin: 0px; 
+textarea.form-control.reply {
+  margin: 0px;
   border-radius: 0 0 2px 2px;
   border: 2px solid #cbd2d6;
   border-bottom: 0px;
@@ -271,4 +271,9 @@ body {
 
 #right{
   float:right;width:100px;
+}
+
+.editor {
+	height: auto;
+  min-height: 140px;
 }

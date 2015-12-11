@@ -68,7 +68,13 @@
         </div>
         </div>
         <form>
-          <textarea ng-model="message" class="form-control message" placeholder="Your Message"></textarea>
+                <textarea mentio
+                    mentio-typed-text="typedTerm"
+                    mentio-items="people | filter:name:typedTerm"
+                    ng-model="message"
+                    autocomplete="off"
+                    size="100">
+                </textarea>
           <div class="post-action">
             <button class="btn post"  ng-click="sendComment(message)">Send Message</button>
           </div>

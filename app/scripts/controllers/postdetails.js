@@ -1,37 +1,21 @@
 'use strict';
 
-angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
-  .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route) {
-    $scope.names = [];
-    $scope.$watch('textmodel',function(newval,oldval) {
-      console.log("newval",newval);
-      var words = newval.split(" ");
-      console.log("words are",words,words.length);
-      var length = words.length-1;
-      if(words[length][0]=="@") {
-        console.log("words",words[length]);
-        var prefixarr = words[length].split("@");
-        console.log("oldval is",prefixarr[1]);
-        var users = apiservice.atuser.get({prefix:prefixarr[1]},function() {
-          console.log("users are",users);
-          $scope.names.push(users.result);
-        })
-      }
-    });
+var myapp = angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery','mentio'])
 
-    $scope.$watch('message',function(newval,oldval) {
-      console.log("newval",newval);
+myapp.controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route,$filter) {
+
+$scope.people = [];
+
+   $scope.$watch('message',function(newval,oldval) {
       var words = newval.split(" ");
-      console.log("words are",words,words.length);
       var length = words.length-1;
       if(words[length][0]=="@") {
-        console.log("words",words[length]);
         var prefixarr = words[length].split("@");
-        console.log("oldval is",prefixarr[1]);
         var response = apiservice.atuser.get({prefix:prefixarr[1]},function() {
-          $scope.names = [];
-          console.log("users are",response.result);
-          $scope.names.push(response.result);
+          $scope.people = [];
+          for(var item in response.result.users) {
+            $scope.people.push({"label":response.result.users[item].name});
+          }          
         })
       }
     });
@@ -162,4 +146,4 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
   };
 
   getComments();
-  });
+});
