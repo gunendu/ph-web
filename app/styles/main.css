@@ -185,7 +185,7 @@ textarea.form-control.reply {
 }
 .container .comment-holder .reply-text { vertical-align: top; }
 .container .comment-activities { color: rgba(0,39,59,.35); }
-.container .comment-activities span { padding: 0px 10px; }
+.container .comment-activities span { padding: 0px 10px 0px 0px; }
 
 /*NAV bar*/
 .header .main-navbar {
