@@ -26,9 +26,10 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<div class="comment-holder">
-    <div>
-        <div class="content"><ng-gallery images="images" thumbs-num="5"></ng-gallery></div>
+<div>
+  <div class="content gallery-holder"><ng-gallery images="images" thumbs-num="5"></ng-gallery></div>
+  <div class="comment-holder">
+    <div style="flex:1;padding:10px;">
         <div ng-repeat="item in comments.comments" class="comments">
         <div class="main-comment">
           <div class="followrow">
@@ -52,25 +53,35 @@
               </div>
             </div>
           </div>
-          <textarea id="maxlength_textarea" class="form-control" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
-          <button class="btn btn-info reply" ng-click="addReply(textArea.textBox,item.id)">Reply</button>
+          <textarea id="maxlength_textarea" class="form-control reply" maxlength="225" rows="1" ng-model="textArea.textBox" placeholder="Reply to comment"></textarea>
+          <div class="post-action">
+            <button class="btn post" ng-click="addReply(textArea.textBox,item.id)">Reply</button>
+          </div>
+        </div>
+        </div>
+        <form>
+          <textarea ng-model="message" class="form-control message"></textarea>
+          <div class="post-action">
+            <button class="btn post" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
+          </div>
+      </form>
+    </div>
+    <div class="share-holder">
+        <h3 class="section-heading">Share</h3>
+        <div class="social-media-holder">
+          <div id="test">
+            <!--<a href="https://twitter.com/share" class="media-share twitter-share-button"{count} data-via="gunendu">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            </script>-->
+            <button  type="button" class="btn btn-primary media-share twit"><i class="fa fa-twitter white font-20"></i>
+            </button>
+          <button ng-click="facebookshare()" type="button" class="btn btn-primary media-share facebook"><i class="fa fa-facebook white font-20"></i></button>
         </div>
         </div>
     </div>
-    <div class="social-media-holder">
-        <div id="test">
-          <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="gunendu">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-          </script>
-        <button ng-click="facebookshare()" type="button" class="btn btn-primary">Facebook</button>
-        </div>
-    </div>
+  </div>
 </div>
-<form class="comment-holder">
-  <textarea ng-model="message" class="form-control message"></textarea>
-  <br>
-  <button class="btn btn-info reply" placeholder="Your Message" ng-click="sendComment(message)">Send Message</button>
-</form>
+
 <div style="padding:220px 0 100px;">
     <div id="thumbnail-slider">
             <ul>
