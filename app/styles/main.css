@@ -4,13 +4,14 @@
   color: #000;
   padding: 0.2em 0;
 }
-
 body {
   padding: 0;
 }
-
 .text-black { color: black; }
 .text-gray { color: #bbbbbb !important; }
+.text-white { color: white;}
+.font-20 { font-size: 20px; }
+.text-center { text-align: center;}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -75,9 +76,7 @@ body {
 .vote::before{content:"\25B2";}​
 .reply { margin-bottom: 20px;}
 /*.red { background-position: 0 2px; }*/
-textarea.form-control { margin: 10px 0px; }
 .btn-info.reply { margin-bottom: 10px; }
-textarea.form-control.message { min-height: 100px; }
 .bold { font-weight: bold;}
 .container.tech { max-width: 960px;}
 .container.tech .product {
@@ -89,7 +88,7 @@ textarea.form-control.message { min-height: 100px; }
 }
 .container.tech .product:hover { background-color: #F7F7FA; }
 .container.tech .product .product-image {
-  width: 130px; height: 90px; float: left;
+  width: 130px; height: 90px; 
 }
 .container.tech .product .product-image img {
 	width: 130px;
@@ -131,22 +130,64 @@ textarea.form-control.message { min-height: 100px; }
     margin-top: 5px;
 }
 .container .upvote-count { padding: 0px 10px; }
+.container .vote-record { 
+  width: 100%; 
+  display: flex; 
+  align-items: baseline;
+  justify-content: flex-end;
+  flex: 1;
+  color: #bbbbbb;
+}
 
-.text-center { text-align: center;}
-
-.container .comment-holder { width: 960px; margin: 0 auto; display: flex; }
+/*Commnets*/
+.container .gallery-holder { width: 100%; }
+.container .comment-holder {  margin: 0 auto; display: flex; }
+.container .comment-holder .comments { margin-bottom: 40px; }
 .container .comment-holder .followrow { margin-right: 15px; }
 .container .comment-holder .main-comment { display: flex; }
 .container  .flex-center { display: flex; align-items:center;}
 .container .comment-holder .comment-image { width: 30px; height: 30px; }
+.container .share-holder { padding: 10px; border-left: 1px solid #f0efef; background-color: rgba(229, 228, 228, 0.26); }
 .container .comment-holder .social-media-holder {
 	display: flex;
-	justify-content:center;
 	min-width: 300px;
 }
-.container .comment-holder .social-media-holder div {
-	margin: 5px;
+.container .post-action { border-radius: 0 0 2px 2px; border: 2px solid #cbd2d6; overflow: auto;}
+.container .btn.post { background: rgba(29,47,58,.6); color: white; float: right; border-radius: 0px; }
+.section-heading {
+  color: #bbb;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  margin: 0 0 16px;
+  text-transform: uppercase;
 }
+.media-share {
+  border-radius: 3px;
+  text-align: center;
+  height: 40px;
+  box-sizing: border-box;
+  width: 70px;
+}
+.media-share.twit { background-color: #00a3e1; }
+textarea.form-control.message { 
+  min-height: 100px;
+  margin: 0px; 
+  border-radius: 0 0 2px 2px;
+  border: 2px solid #cbd2d6;
+  border-bottom: 0px;
+}
+textarea.form-control.reply { 
+  margin: 0px; 
+  border-radius: 0 0 2px 2px;
+  border: 2px solid #cbd2d6;
+  border-bottom: 0px;
+}
+.container .comment-holder .reply-text { vertical-align: top; }
+.container .comment-activities { color: rgba(0,39,59,.35); }
+.container .comment-activities span { padding: 0px 10px; }
+
+/*NAV bar*/
 .header .main-navbar {
   margin: 0px 15px;
   height: 50px;
