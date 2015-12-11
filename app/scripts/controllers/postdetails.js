@@ -2,8 +2,25 @@
 
 angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
   .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route) {
+
+    $scope.$watch('textmodel',function(newval,oldval) {
+      console.log("newval",newval);
+      var words = newval.split(" ");
+      console.log("words are",words,words.length);
+      var length = words.length-1;
+      if(words[length][0]=="@") {
+        console.log("words",words[length]);
+        var prefixarr = words[length].split("@");
+        console.log("oldval is",prefixarr[1]);
+        var users = apiservice.atuser.get({prefix:prefixarr[1]},function() {
+          console.log("users are",users);
+        })
+      }
+    });
+
   $scope.post_id = $routeParams.post_id;
   $scope.toggle = false;
+
   $scope.sendComment = function(message) {
     console.log("message is",message,$scope.post_id);
     var comment = {};
