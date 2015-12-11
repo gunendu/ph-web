@@ -42,7 +42,6 @@
             <div id={{item.comment.id}}>{{item.comment}}</div>
             <div class="comment-activities">
               <span class="vote" ng-click="upVoteComment(item.id,item.flag); $event.stopPropagation()"; ng-class="{red : item.flag}">{{item.votecount}}</span>
-              <span class="reply-text" onclick="openPostAction(this);">reply</span>
             </div>
           </div>
         </div>
@@ -55,6 +54,7 @@
                 <div id={{reply.reply_id}}>{{reply.reply}}</div>
                 <div class="comment-activities">
                   <span class="vote" ng-click="upVoteReply(reply.reply_id,item.id,item.flag); $event.stopPropagation()"; ng-class="{red : flag}">{{item.votecount}}</span>
+                  <span class="reply-text" onclick="openPostAction(this);">reply</span>
                 </div>
               </div>
             </div>
@@ -78,9 +78,9 @@
         <h3 class="section-heading">Share</h3>
         <div class="social-media-holder">
           <div id="test">
-            <!--<a href="https://twitter.com/share" class="media-share twitter-share-button"{count} data-via="gunendu">Tweet</a>
+            <a href="https://twitter.com/share" class="media-share twitter-share-button"{count} data-via="gunendu">Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-            </script>-->
+            </script>
             <button  type="button" class="btn btn-primary media-share twit"><i class="fa fa-twitter white font-20"></i>
             </button>
           <button ng-click="facebookshare()" type="button" class="btn btn-primary media-share facebook"><i class="fa fa-facebook white font-20"></i></button>
@@ -95,10 +95,10 @@
 <div style="padding:220px 0 100px;">
     <div id="thumbnail-slider">
             <ul>
-              <!--  <li ng-repeat="user in users">
+                <li ng-repeat="user in users">
                   <img class="thumb" style='width:50px;height:50px' src={{user}} ng-mouseover="hoverIn(user,$event)">
                   </img>
-                </li> -->
+                </li>
             </ul>
     </div>
 </div>
