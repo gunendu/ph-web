@@ -2,7 +2,7 @@
 
 angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
   .controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route) {
-
+    $scope.names = [];
     $scope.$watch('textmodel',function(newval,oldval) {
       console.log("newval",newval);
       var words = newval.split(" ");
@@ -14,6 +14,24 @@ angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery'])
         console.log("oldval is",prefixarr[1]);
         var users = apiservice.atuser.get({prefix:prefixarr[1]},function() {
           console.log("users are",users);
+          $scope.names.push(users.result);
+        })
+      }
+    });
+
+    $scope.$watch('message',function(newval,oldval) {
+      console.log("newval",newval);
+      var words = newval.split(" ");
+      console.log("words are",words,words.length);
+      var length = words.length-1;
+      if(words[length][0]=="@") {
+        console.log("words",words[length]);
+        var prefixarr = words[length].split("@");
+        console.log("oldval is",prefixarr[1]);
+        var response = apiservice.atuser.get({prefix:prefixarr[1]},function() {
+          $scope.names = [];
+          console.log("users are",response.result);
+          $scope.names.push(response.result);
         })
       }
     });

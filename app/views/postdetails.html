@@ -72,6 +72,9 @@
           <div class="post-action">
             <button class="btn post"  ng-click="sendComment(message)">Send Message</button>
           </div>
+          <div class="row controls" >
+            <ul><li ng-repeat="name in names">{{name}}</li></ul>
+          </div>
       </form>
     </div>
     <div class="share-holder">
@@ -87,9 +90,7 @@
         </div>
         </div>
     </div>
-
   </div>
-
 </div>
 
 <div style="padding:220px 0 100px;">
