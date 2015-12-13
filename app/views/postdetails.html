@@ -106,12 +106,12 @@
 
 <div style="padding:220px 0 100px;">
     <div id="thumbnail-slider">
-            <ul>
-                <li ng-repeat="user in users">
-                  <img class="thumb" style='width:50px;height:50px' src={{user}} ng-mouseover="hoverIn(user,$event)">
-                  </img>
-                </li>
-            </ul>
+      <ul>
+          <li ng-repeat="user in users">
+            <img class="thumb" style='width:50px;height:50px' src={{user}} ng-mouseover="hoverIn(user,$event)">
+            </img>
+          </li>
+      </ul>
     </div>
 </div>
 <script type="text/javascript">
@@ -119,16 +119,15 @@
     $(el).parent().parent().parent('.main-comment').siblings().find('.post-action-holder').removeClass('hide');
   }
 </script>
-
 <script type="text/ng-template" id="/people-mentions.tpl">
-                    <ul class="list-group user-search">
-                        <i mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
-                            <mg ng-src=" { {person.imageUrl} }" class="user-photo">
-                            <span class="text-primary"
-                                ng-bind-html="person.name | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
-                            <em class="text-muted" ng-bind="person.bio | words:5"></em>
-                        </li>
-                    </ul>
+    <ul class="list-group user-search">
+        <i mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
+            <mg ng-src=" { {person.imageUrl} }" class="user-photo">
+            <span class="text-primary"
+                ng-bind-html="person.name | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
+            <em class="text-muted" ng-bind="person.bio | words:5"></em>
+        </li>
+    </ul>
 </script>
 </body>
 </html>
