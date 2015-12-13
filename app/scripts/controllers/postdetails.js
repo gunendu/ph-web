@@ -2,9 +2,18 @@
 
 var myapp = angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery','mentio'])
 
-myapp.controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route,$filter) {
+myapp.controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route,$filter,$sce,$q) {
 
 $scope.people = [];
+
+  $scope.searchPeople = function(term) {
+    console.log("searchpeople",term);
+  }
+
+  $scope.getPeopleText = function(item) {
+    console.log("item",item.label);
+    return '@'+item.label;
+  }
 
    $scope.$watch('message',function(newval,oldval) {
       var words = newval.split(" ");
@@ -15,13 +24,12 @@ $scope.people = [];
           $scope.people = [];
           for(var item in response.result.users) {
             $scope.people.push({"label":response.result.users[item].name});
-          }          
+          }
         })
       }
     });
 
   $scope.post_id = $routeParams.post_id;
-  $scope.toggle = false;
 
   $scope.sendComment = function(message) {
     console.log("message is",message,$scope.post_id);

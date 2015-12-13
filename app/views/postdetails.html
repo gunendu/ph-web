@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="5/thumbnail-slider.css" rel="stylesheet" type="text/css" />
     <script src="5/thumbnail-slider.js" type="text/javascript"></script>
+    <script src="bower_components/ment.io/dist/mentio.js"></script>
     <style>
         body {font: normal 1.5em Arial;color: #222;margin:0;}
         header {display: block;font-size: 1.2em;margin-bottom:100px;}
@@ -25,8 +26,8 @@
     </style>
     <link rel="stylesheet" href="styles/main.css">
 </head>
-
 <div>
+
   <div class="content gallery-holder"><ng-gallery images="images" thumbs-num="5"></ng-gallery></div>
   <div class="comment-holder">
     <div style="flex:1;padding:10px;">
@@ -68,13 +69,17 @@
         </div>
         </div>
         <form>
-                <textarea mentio
-                    mentio-typed-text="typedTerm"
-                    mentio-items="people | filter:name:typedTerm"
-                    ng-model="message"
-                    autocomplete="off"
-                    size="100">
-                </textarea>
+
+        <textarea mentio
+              mentio-typed-text="typedTerm"
+              mentio-items="people | filter:label:typedTerm"
+              ng-model="message"
+              autocomplete="off"
+              mentio-search="searchPeople(term)"
+              mentio-select="getPeopleText(item)"
+              size="100">
+        </textarea>
+
           <div class="post-action">
             <button class="btn post"  ng-click="sendComment(message)">Send Message</button>
           </div>
@@ -113,6 +118,17 @@
   function openPostAction(el){
     $(el).parent().parent().parent('.main-comment').siblings().find('.post-action-holder').removeClass('hide');
   }
+</script>
+
+<script type="text/ng-template" id="/people-mentions.tpl">
+                    <ul class="list-group user-search">
+                        <i mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
+                            <mg ng-src=" { {person.imageUrl} }" class="user-photo">
+                            <span class="text-primary"
+                                ng-bind-html="person.name | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
+                            <em class="text-muted" ng-bind="person.bio | words:5"></em>
+                        </li>
+                    </ul>
 </script>
 </body>
 </html>
