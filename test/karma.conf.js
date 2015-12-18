@@ -37,6 +37,9 @@ module.exports = function(config) {
       'bower_components/oauth-js/dist/oauth.min.js',
       'bower_components/underscore/underscore.js',
       'bower_components/ment.io/dist/mentio.js',
+      'bower_components/angular-socket-io/socket.js',
+      'bower_components/angulike/angulike.js',
+      'bower_components/angular-socialshare/angular-socialshare.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

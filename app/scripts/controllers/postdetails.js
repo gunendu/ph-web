@@ -1,6 +1,6 @@
 'use strict';
 
-var myapp = angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery','mentio'])
+var myapp = angular.module('phApp.PostViewDetails',['ngRoute','ngStorage','jkuri.gallery','mentio','djds4rce.angular-socialshare'])
 
 myapp.controller('PostDetailsCtrl',function ($scope,$routeParams,$localStorage,$location,$window,apiservice,$document,$route,$filter,$sce,$q) {
 
@@ -15,7 +15,7 @@ $scope.people = [];
     return '@'+item.label;
   }
 
-   $scope.$watch('message',function(newval,oldval) {
+  $scope.$watch('message',function(newval,oldval) {
       var words = newval.split(" ");
       var length = words.length-1;
       if(words[length][0]=="@") {
@@ -27,7 +27,7 @@ $scope.people = [];
           }
         })
       }
-    });
+   });
 
   $scope.post_id = $routeParams.post_id;
 
@@ -140,6 +140,16 @@ $scope.people = [];
       link: 'https://www.producthunt.com/tech/startup-stash',
       caption: 'An example caption',
     }, function(response){});
+  }
+
+  $scope.twittershare = function() {
+    (function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id)){
+            js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);
+        }
+    }(document, 'script', 'twitter-wjs'));
   }
 
   $scope.go = function(path,id) {

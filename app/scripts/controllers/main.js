@@ -9,6 +9,10 @@
  */
 angular.module('phApp.MainView',['ngRoute','ngStorage','ngSanitize'])
   .controller('MainCtrl', function ($route,$scope,$location,$rootScope,$localStorage,apiservice,$sce) {
+
+    /*socket.on('push', function(msg){
+      console.log('message: ' + JSON.stringify(msg));
+    });*/
      $scope.profile_url = $localStorage.profile_url;
      console.log("profile_url is",$scope.profile_url);
      $scope.trustSrc = function(src) {

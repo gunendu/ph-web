@@ -68,7 +68,6 @@ return {
   getUserInfo: getUserInfo,
   checkLoginState: checkLoginState
 }
-
 });
 
 myapp.controller('LoginCtrl', function($scope,$window,$localStorage,srvAuth,twitterservice,apiservice,$location) {

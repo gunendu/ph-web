@@ -23,7 +23,8 @@ angular
     'phApp.PostViewDetails',
     'phApp.ProfileView',
     'phApp.apiservice',
-    'phApp.twitterservice'
+    'phApp.twitterservice',
+    'phApp.socketservice'
   ])
   .config(function ($routeProvider) {
     $routeProvider
